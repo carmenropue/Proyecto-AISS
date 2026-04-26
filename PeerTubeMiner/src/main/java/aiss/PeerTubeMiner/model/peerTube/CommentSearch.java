@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "data"
 })
 @Generated("jsonschema2pojo")
-public class CommentData {
+public class CommentSearch {
 
     @JsonProperty("total")
     private Integer total;
@@ -43,7 +43,7 @@ public class CommentData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(CommentData.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(CommentSearch.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("total");
         sb.append('=');
         sb.append(((this.total == null)?"<null>":this.total));

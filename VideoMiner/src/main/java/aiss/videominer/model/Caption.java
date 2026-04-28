@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Juan C. Alonso
@@ -13,30 +14,30 @@ import jakarta.persistence.Table;
 public class Caption {
 
     @Id
-    @JsonProperty("id")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("link")
+    private String link;
 
     @JsonProperty("language")
     private String language;
 
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     public String getName() {
-        return name;
+        return link;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.link = link;
     }
 
     public String getLanguage() {
@@ -51,7 +52,7 @@ public class Caption {
     public String toString() {
         return "Caption{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + link + '\'' +
                 ", language='" + language + '\'' +
                 '}';
     }

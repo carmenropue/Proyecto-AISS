@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 
 @SpringBootTest
-public class channelServiceTest {
+public class ChannelServiceTest {
 
     @Autowired
     ChannelService channelService;

@@ -1,5 +1,5 @@
 
-package aiss.PeerTubeMiner.model.peerTube;
+package aiss.PeerTubeMiner.model.peertube;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

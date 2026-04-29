@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="integracion" />
         <module name="videominer" />
-        <module name="DailyMotionMiner" />
         <module name="PeerTubeMiner" />
+        <module name="DailyMotionMiner" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DailyMotionMiner" options="-parameters" />
       <module name="PeerTubeMiner" options="-parameters" />
+      <module name="integracion" options="-parameters" />
       <module name="videominer" options="-parameters" />
     </option>
   </component>

@@ -1,9 +1,6 @@
 
 package aiss.PeerTubeMiner.model.peerTube;
 
-import java.util.List;
-import javax.annotation.processing.Generated;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +18,9 @@ public class Channel {
     private String createdAt;
     @JsonProperty("description")
     private String description;
+
+    public Channel() {
+    }
 
     @JsonProperty("id")
     public Integer getId() {

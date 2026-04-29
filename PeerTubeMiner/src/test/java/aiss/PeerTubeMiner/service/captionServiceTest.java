@@ -1,6 +1,5 @@
 package aiss.PeerTubeMiner.service;
 
-
 import aiss.PeerTubeMiner.model.peerTube.Caption;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

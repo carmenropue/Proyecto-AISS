@@ -1,5 +1,5 @@
 
-package aiss.PeerTubeMiner.model.peertube;
+package aiss.PeerTubeMiner.model.peerTube;
 
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -21,7 +21,7 @@ public class User {
     @JsonProperty("url") // user_link
     private String url;
     //Host no necesario
-    @JsonProperty("avatars")    //picture_link
+    @JsonProperty("avatars")    //picture_link,
     private List<Pictures> avatars;
 
     @JsonProperty("id")

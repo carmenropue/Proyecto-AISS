@@ -1,5 +1,5 @@
 
-package aiss.PeerTubeMiner.model.peertube;
+package aiss.PeerTubeMiner.model.peerTube;
 
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -8,12 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "total",
-    "data"
-})
-@Generated("jsonschema2pojo")
-public class CaptionData {
+public class CaptionSearch {
 
     @JsonProperty("total")
     private Integer total;
@@ -43,7 +38,7 @@ public class CaptionData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(CaptionData.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(CaptionSearch.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("total");
         sb.append('=');
         sb.append(((this.total == null)?"<null>":this.total));

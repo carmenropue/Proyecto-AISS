@@ -1,5 +1,5 @@
 
-package aiss.PeerTubeMiner.model.peertube;
+package aiss.PeerTubeMiner.model.peerTube;
 
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -7,7 +7,6 @@ import javax.annotation.processing.Generated;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("jsonschema2pojo")
@@ -20,10 +19,8 @@ public class Video {
     private String name;
     @JsonProperty("publishedAt") //realeaseTime
     private String publishedAt;
-    @JsonProperty("originallyPublishedAt")//realeaseTime¿¿
-    private String originallyPublishedAt;
-    @JsonProperty("truncatedDescription")//description¿¿
-    private String truncatedDescription;
+    @JsonProperty("description")
+    private String description;
     @JsonProperty("account")
     private User account;
     @JsonProperty("channel")
@@ -52,24 +49,14 @@ public class Video {
         this.publishedAt = publishedAt;
     }
 
-    @JsonProperty("originallyPublishedAt")
-    public String getOriginallyPublishedAt() {
-        return originallyPublishedAt;
+    @JsonProperty("description")
+    public String getDescription() {
+        return description;
     }
 
-    @JsonProperty("originallyPublishedAt")
-    public void setOriginallyPublishedAt(String originallyPublishedAt) {
-        this.originallyPublishedAt = originallyPublishedAt;
-    }
-
-    @JsonProperty("truncatedDescription")
-    public String getTruncatedDescription() {
-        return truncatedDescription;
-    }
-
-    @JsonProperty("truncatedDescription")
-    public void setTruncatedDescription(String truncatedDescription) {
-        this.truncatedDescription = truncatedDescription;
+    @JsonProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @JsonProperty("name")
@@ -120,9 +107,9 @@ public class Video {
         sb.append('=');
         sb.append(((this.publishedAt == null)?"<null>":this.publishedAt));
         sb.append(',');
-        sb.append("truncatedDescription");
+        sb.append("description");
         sb.append('=');
-        sb.append(((this.truncatedDescription == null)?"<null>":this.truncatedDescription));
+        sb.append(((this.description == null)?"<null>":this.description));
         sb.append(',');
         sb.append("name");
         sb.append('=');

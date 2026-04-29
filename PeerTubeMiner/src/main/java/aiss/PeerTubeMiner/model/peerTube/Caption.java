@@ -1,12 +1,8 @@
-
-package aiss.PeerTubeMiner.model.peertube;
-
-import javax.annotation.processing.Generated;
+package aiss.PeerTubeMiner.model.peerTube;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -16,8 +12,7 @@ public class Caption {
     private Language language;
     @JsonProperty("fileUrl")
     private String fileUrl;
-    @JsonProperty("updatedAt")
-    private String updatedAt; //no sería id??? He sacado la clase POJO del ejemplo de la documentación pq no encuentro videos con captions
+    //No tiene id pero lo tenemos que generar en videominer
 
     @JsonProperty("language")
     public Language getLanguage() {
@@ -39,16 +34,6 @@ public class Caption {
         this.fileUrl = fileUrl;
     }
 
-    @JsonProperty("updatedAt")
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    @JsonProperty("updatedAt")
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -60,10 +45,6 @@ public class Caption {
         sb.append("fileUrl");
         sb.append('=');
         sb.append(((this.fileUrl == null)?"<null>":this.fileUrl));
-        sb.append(',');
-        sb.append("updatedAt");
-        sb.append('=');
-        sb.append(((this.updatedAt == null)?"<null>":this.updatedAt));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

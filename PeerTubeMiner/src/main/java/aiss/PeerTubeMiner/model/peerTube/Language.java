@@ -1,23 +1,28 @@
 
-package aiss.PeerTubeMiner.model.peertube;
+package aiss.PeerTubeMiner.model.peerTube;
 
 import javax.annotation.processing.Generated;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "id",
-    "label"
-})
-@Generated("jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Language {
 
     @JsonProperty("id")
     private String id;
     @JsonProperty("label")
     private String label;
+
+    public Language(){}
+
+    public Language(String id, String label){
+        this.id = id;
+        this.label = label;
+    }
 
     @JsonProperty("id")
     public String getId() {

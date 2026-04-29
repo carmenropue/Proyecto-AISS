@@ -1,5 +1,5 @@
 
-package aiss.PeerTubeMiner.model.peertube;
+package aiss.PeerTubeMiner.model.peerTube;
 
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -7,7 +7,7 @@ import javax.annotation.processing.Generated;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)

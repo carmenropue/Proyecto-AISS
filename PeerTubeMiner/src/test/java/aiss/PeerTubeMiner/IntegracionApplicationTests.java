@@ -1,4 +1,4 @@
-package aiss.integracion;
+package aiss.PeerTubeMiner;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

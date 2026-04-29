@@ -14,26 +14,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
         "page",
         "limit",
-        "explicit",
         "total",
-        "has_more",
         "list"
 })
 @Generated("jsonschema2pojo")
-public class Video {
+public class Captions {
 
     @JsonProperty("page")
     private Integer page;
     @JsonProperty("limit")
     private Integer limit;
-    @JsonProperty("explicit")
-    private Boolean explicit;
     @JsonProperty("total")
     private Integer total;
-    @JsonProperty("has_more")
-    private Boolean hasMore;
     @JsonProperty("list")
-    private java.util.List<VideoItem> list;
+    private java.util.List<CaptionsItem> list;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -57,16 +51,6 @@ public class Video {
         this.limit = limit;
     }
 
-    @JsonProperty("explicit")
-    public Boolean getExplicit() {
-        return explicit;
-    }
-
-    @JsonProperty("explicit")
-    public void setExplicit(Boolean explicit) {
-        this.explicit = explicit;
-    }
-
     @JsonProperty("total")
     public Integer getTotal() {
         return total;
@@ -77,23 +61,13 @@ public class Video {
         this.total = total;
     }
 
-    @JsonProperty("has_more")
-    public Boolean getHasMore() {
-        return hasMore;
-    }
-
-    @JsonProperty("has_more")
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
     @JsonProperty("list")
-    public java.util.List<VideoItem> getList() {
+    public java.util.List<CaptionsItem> getList() {
         return list;
     }
 
     @JsonProperty("list")
-    public void setList(java.util.List<VideoItem> list) {
+    public void setList(java.util.List<CaptionsItem> list) {
         this.list = list;
     }
 

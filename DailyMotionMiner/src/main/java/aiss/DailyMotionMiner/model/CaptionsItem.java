@@ -13,21 +13,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "id",
-        "screenname",
-        "description",
-        "created_time"
+        "language",
+        "url"
 })
 @Generated("jsonschema2pojo")
-public class Channel {
+public class CaptionsItem {
 
     @JsonProperty("id")
     private String id;
-    @JsonProperty("screenname")
-    private String screenname;
-    @JsonProperty("description")
-    private String description;
-    @JsonProperty("created_time")
-    private Integer createdTime;
+    @JsonProperty("language")
+    private String language;
+    @JsonProperty("url")
+    private String url;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -41,34 +38,24 @@ public class Channel {
         this.id = id;
     }
 
-    @JsonProperty("screenname")
-    public String getScreenname() {
-        return screenname;
+    @JsonProperty("language")
+    public String getLanguage() {
+        return language;
     }
 
-    @JsonProperty("screenname")
-    public void setScreenname(String screenname) {
-        this.screenname = screenname;
+    @JsonProperty("language")
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    @JsonProperty("description")
-    public String getDescription() {
-        return description;
+    @JsonProperty("url")
+    public String getUrl() {
+        return url;
     }
 
-    @JsonProperty("description")
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @JsonProperty("created_time")
-    public Integer getCreatedTime() {
-        return createdTime;
-    }
-
-    @JsonProperty("created_time")
-    public void setCreatedTime(Integer createdTime) {
-        this.createdTime = createdTime;
+    @JsonProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @JsonAnyGetter

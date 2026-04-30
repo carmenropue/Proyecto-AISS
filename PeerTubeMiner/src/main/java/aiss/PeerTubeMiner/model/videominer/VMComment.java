@@ -12,6 +12,9 @@ public class VMComment {
         this.createdOn = createdOn;
     }
 
+    public VMComment() {
+    }
+
     public String getId() { return id; }
 
     public void setId(String id) { this.id = id; }

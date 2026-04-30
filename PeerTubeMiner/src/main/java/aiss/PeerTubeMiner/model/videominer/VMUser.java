@@ -14,6 +14,9 @@ public class VMUser {
         this.picture_link = picture_link;
     }
 
+    public VMUser() {
+    }
+
     public String getId() { return id; }
 
     public void setId(String id) { this.id = id; }

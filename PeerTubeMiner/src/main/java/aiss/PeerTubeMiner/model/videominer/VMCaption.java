@@ -13,6 +13,9 @@ public class VMCaption {
         this.language = language;
     }
 
+    public VMCaption() {
+    }
+
     public String getId() { return id; }
 
     public void setId(String id) {

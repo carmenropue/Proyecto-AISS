@@ -15,8 +15,9 @@ import java.util.List;
 public class Video {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private String id;
+    private long id;
 
     @JsonProperty("name")
     @NotEmpty(message = "Video name cannot be empty")
@@ -44,11 +45,11 @@ public class Video {
     @JoinColumn(name = "videoId")
     private List<Caption> captions;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

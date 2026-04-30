@@ -1,12 +1,14 @@
 package aiss.DailyMotionMiner.service;
 
-import aiss.DailyMotionMiner.DailyMotionApplication;
-import aiss.DailyMotionMiner.model.Video;
+import aiss.DailyMotionMiner.model.dailymotion.Video;
+import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 public class videoServiceTests {
@@ -17,12 +19,26 @@ public class videoServiceTests {
     void testGetVideo(){
         Video result = videoService.getVideoFromId("xa7ktmo");
         Assertions.assertNotNull(result);
-        printVideo(result);
+
+        System.out.println(result);
     }
-    void printVideo(Video video){
-        System.out.println(video.getId());
-        System.out.println(video.getTitle());
-        System.out.println(video.getDescription());
-        System.out.println(video.getCreatedTime());
+    @Test
+    @DisplayName("Get videos from channel")
+    void testGetVideosFromChannel(){
+        VideoList result = videoService.getVideosFromChannel("x4zjqxy");
+        Assertions.assertNotNull(result);
+        printVideos(result);
+    }
+    void printVideos(VideoList videos){
+        System.out.println("Page: " + videos.getPage());
+        System.out.println("Limit: " + videos.getLimit());
+        System.out.println("Total: " + videos.getTotal());
+        System.out.println("Has more: " + videos.getHasMore());
+        System.out.println("Explicit: " + videos.getExplicit());
+        System.out.println("\n=== Videos ===\n");
+        for (Video video : videos.getList()){
+            System.out.println(video+"\n");
+
+        }
     }
 }

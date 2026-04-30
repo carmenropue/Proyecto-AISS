@@ -1,16 +1,15 @@
 package aiss.DailyMotionMiner.service;
 
-import aiss.DailyMotionMiner.model.Video;
+import aiss.DailyMotionMiner.model.dailymotion.Video;
+import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
-import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class VideoService {
@@ -20,7 +19,7 @@ public class VideoService {
 
     //GET https://api.dailymotion.com/video/{videoId}
     public Video getVideoFromId(String id){
-        String uri = baseUri+"/video"+"/"+id+"?fields=id%2Cdescription%2Ccreated_time'";
+        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time";
         try{
             return restTemplate.getForObject(uri, Video.class);
         } catch ( HttpClientErrorException e){
@@ -34,12 +33,12 @@ public class VideoService {
     }
     //GET  https://api.dailymotion.com/user/{userId}/videos
 
-    public List<Video> getVideosFromChannel(String userId){
-        String uri = baseUri+"/users/"+userId+"/videos";
-        Video[] videos;
+    public VideoList getVideosFromChannel(String userId){
+        String uri = baseUri+"/user/"+userId+"/videos"+"?fields=id,title,description,created_time";
+         VideoList videos;
         try{
-            videos = restTemplate.getForObject(uri, Video[].class);
-            return Arrays.stream(videos).toList();
+            videos = restTemplate.getForObject(uri, VideoList.class);
+            return videos;
         } catch ( HttpClientErrorException e){
             System.err.println("Client error: " +e.getStatusCode() +" - "+e.getResponseBodyAsString());
         } catch ( HttpServerErrorException e){

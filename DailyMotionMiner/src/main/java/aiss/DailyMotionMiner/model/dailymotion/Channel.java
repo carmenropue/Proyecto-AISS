@@ -1,4 +1,4 @@
-package aiss.DailyMotionMiner.model;
+package aiss.DailyMotionMiner.model.dailymotion;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -78,4 +78,14 @@ public class Channel {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "Channel{" +
+                "id='" + id + '\'' +
+                ", screenname='" + screenname + '\'' +
+                ", description='" + description + '\'' +
+                ", createdTime=" + createdTime +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

@@ -3,98 +3,69 @@ package aiss.DailyMotionMiner.model;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.annotation.processing.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "page",
-        "limit",
-        "explicit",
-        "total",
-        "has_more",
-        "list"
+        "id",
+        "title",
+        "description",
+        "created_time"
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Generated("jsonschema2pojo")
 public class Video {
 
-    @JsonProperty("page")
-    private Integer page;
-    @JsonProperty("limit")
-    private Integer limit;
-    @JsonProperty("explicit")
-    private Boolean explicit;
-    @JsonProperty("total")
-    private Integer total;
-    @JsonProperty("has_more")
-    private Boolean hasMore;
-    @JsonProperty("list")
-    private java.util.List<VideoItem> list;
+    @JsonProperty("id")
+    private String id;
+    @JsonProperty("title")
+    private String title;
+    @JsonProperty("description")
+    private String description;
+    @JsonProperty("created_time")
+    private Integer createdTime;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-    @JsonProperty("page")
-    public Integer getPage() {
-        return page;
+    @JsonProperty("id")
+    public String getId() {
+        return id;
     }
 
-    @JsonProperty("page")
-    public void setPage(Integer page) {
-        this.page = page;
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
     }
 
-    @JsonProperty("limit")
-    public Integer getLimit() {
-        return limit;
+    @JsonProperty("title")
+    public String getTitle() {
+        return title;
     }
 
-    @JsonProperty("limit")
-    public void setLimit(Integer limit) {
-        this.limit = limit;
+    @JsonProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    @JsonProperty("explicit")
-    public Boolean getExplicit() {
-        return explicit;
+    @JsonProperty("description")
+    public String getDescription() {
+        return description;
     }
 
-    @JsonProperty("explicit")
-    public void setExplicit(Boolean explicit) {
-        this.explicit = explicit;
+    @JsonProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    @JsonProperty("total")
-    public Integer getTotal() {
-        return total;
+    @JsonProperty("created_time")
+    public Integer getCreatedTime() {
+        return createdTime;
     }
 
-    @JsonProperty("total")
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
-    @JsonProperty("has_more")
-    public Boolean getHasMore() {
-        return hasMore;
-    }
-
-    @JsonProperty("has_more")
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    @JsonProperty("list")
-    public java.util.List<VideoItem> getList() {
-        return list;
-    }
-
-    @JsonProperty("list")
-    public void setList(java.util.List<VideoItem> list) {
-        this.list = list;
+    @JsonProperty("created_time")
+    public void setCreatedTime(Integer createdTime) {
+        this.createdTime = createdTime;
     }
 
     @JsonAnyGetter
@@ -107,4 +78,14 @@ public class Video {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "Video{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", createdTime=" + createdTime +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

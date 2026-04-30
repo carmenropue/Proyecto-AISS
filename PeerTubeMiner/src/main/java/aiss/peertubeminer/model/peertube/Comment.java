@@ -1,0 +1,90 @@
+
+package aiss.peertubeminer.model.peertube;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonPropertyOrder({
+        "id",
+        "text",
+        "createdAt" // -> createdOn
+})
+public class Comment {
+
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("text")
+    private String text;
+    @JsonProperty("createdAt") //createdOn
+    private String createdAt;
+
+    @JsonProperty("id")
+    public Integer getId() {
+        return id;
+    }
+
+    @JsonProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonProperty("text")
+    public String getText() {
+        return text;
+    }
+
+    @JsonProperty("text")
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @JsonProperty("createdAt")
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    @JsonProperty("createdAt")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    //@JsonProperty("video")
+    //public Video getVideo() {return video;}
+
+    //@JsonProperty("video")
+    //public void setVideo(Video video) {this.video = video;}
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Comment.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("id");
+        sb.append('=');
+        sb.append(((this.id == null)?"<null>":this.id));
+        sb.append(',');
+        sb.append("text");
+        sb.append('=');
+        sb.append(((this.text == null)?"<null>":this.text));
+        sb.append(',');
+        sb.append("createdAt");
+        sb.append('=');
+        sb.append(((this.createdAt == null)?"<null>":this.createdAt));
+        sb.append(',');
+        //sb.append("video");
+        //sb.append('=');
+        //sb.append(((this.video == null)?"<null>":this.video));
+        //sb.append(',');
+
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
+        } else {
+            sb.append(']');
+        }
+        return sb.toString();
+    }
+
+}

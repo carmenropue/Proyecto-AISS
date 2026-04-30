@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 @SpringBootTest
-public class videoServiceTest {
+public class VideoServiceTest {
 
     @Autowired
     VideoService videoService;

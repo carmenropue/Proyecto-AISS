@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
-public class commentServiceTest {
+public class CommentServiceTest {
 
     @Autowired
     CommentService commentService;

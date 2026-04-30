@@ -1,6 +1,6 @@
-package aiss.PeerTubeMiner.service;
+package aiss.peertubeminer.service;
 
-import aiss.PeerTubeMiner.model.peerTube.Channel;
+import aiss.peertubeminer.model.peertube.Channel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

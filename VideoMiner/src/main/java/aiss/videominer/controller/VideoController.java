@@ -1,6 +1,7 @@
 package aiss.videominer.controller;
 
 import aiss.videominer.model.Channel;
+import aiss.videominer.model.User;
 import aiss.videominer.repository.ChannelRepository;
 import aiss.videominer.repository.VideoRepository;
 import aiss.videominer.model.Video;
@@ -75,5 +76,24 @@ public class VideoController {
         if (!videoRepository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
         videoRepository.deleteById(id);
+    }
+    // Obtener el usuario de un video concreto
+    @GetMapping("/videos/{id}/user")
+    public User findUserByVideo(@PathVariable String id) {
+        Optional<Video> video = videoRepository.findById(id);
+        if (video.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
+        return video.get().getAuthor();
+    }
+
+    // Actualizar el usuario de un video
+    @PutMapping("/videos/{id}/user")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateUser(@PathVariable String id, @RequestBody @Valid User updatedUser) {
+        Optional<Video> video = videoRepository.findById(id);
+        if (video.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
+        video.get().setAuthor(updatedUser);
+        videoRepository.save(video.get());
     }
 }

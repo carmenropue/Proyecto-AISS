@@ -1,7 +1,7 @@
-package aiss.PeerTubeMiner.mapper;
+package aiss.peertubeminer.mapper;
 
-import aiss.PeerTubeMiner.model.peerTube.Channel;
-import aiss.PeerTubeMiner.model.videominer.VMChannel;
+import aiss.peertubeminer.model.peertube.Channel;
+import aiss.peertubeminer.model.videominer.VMChannel;
 
 public class ChannelMapper {
     public static VMChannel toVMChannel(Channel channel) {

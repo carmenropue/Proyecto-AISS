@@ -1,17 +1,27 @@
 package aiss.DailyMotionMiner.model.videominer;
 
+import java.util.List;
+
 public class VMVideo {
 
     private String id;
     private String name;
     private String description;
-    private String realeaseTime;
+    private String releaseTime;
+    private List<VMComment> comments;
+    private List<VMCaption> captions;
 
-    public VMVideo(String id, String name, String description, String realeaseTime) {
+    public VMVideo(String id, String name, String description, String releaseTime, List<VMComment> comments, List<VMCaption> captions) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.realeaseTime = realeaseTime;
+        this.releaseTime = releaseTime;
+        this.comments = comments;
+        this.captions = captions;
+    }
+
+    public VMVideo() {
+
     }
 
     public String getId() { return id; }
@@ -26,7 +36,23 @@ public class VMVideo {
 
     public void setDescription(String description) { this.description = description; }
 
-    public String getRealeaseTime() { return realeaseTime; }
+    public String getReleaseTime() { return releaseTime; }
 
-    public void setRealeaseTime(String realeaseTime) { this.realeaseTime = realeaseTime; }
+    public void setReleaseTime(String realeaseTime) { this.releaseTime = realeaseTime; }
+
+    public List<VMCaption> getCaptions() {
+        return captions;
+    }
+
+    public void setCaptions(List<VMCaption> captions) {
+        this.captions = captions;
+    }
+
+    public List<VMComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<VMComment> comments) {
+        this.comments = comments;
+    }
 }

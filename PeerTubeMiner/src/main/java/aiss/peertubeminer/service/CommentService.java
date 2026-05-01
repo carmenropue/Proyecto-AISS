@@ -19,9 +19,9 @@ public class CommentService {
     String baseURI = "https://peertube.tv/api/v1";
 
     //GET https://peertube.tv/api/v1/videos/{id}/comment-threads
-    public List<Comment> getCommentsFromVideo(Integer videoId) {
+    public List<Comment> getCommentsFromVideo(Integer videoId, Integer maxComments) {
         ResponseEntity<CommentSearch> response = restTemplate
-                .getForEntity(baseURI + "/videos/" + videoId + "/comment-threads", CommentSearch.class);
+                .getForEntity(baseURI + "/videos/" + videoId + "/comment-threads?count=" + maxComments, CommentSearch.class);
 
         if (response.getBody() != null) {
             return response.getBody().getData();

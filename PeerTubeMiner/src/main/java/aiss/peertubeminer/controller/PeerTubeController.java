@@ -17,7 +17,15 @@ public class PeerTubeController {
 
     @GetMapping("/{channelHandle}")
     public Channel getChannel(@PathVariable String channelHandle,
-                              @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos) {
-        return channelService.getChannelWithVideos(channelHandle, maxVideos);
+                              @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos,
+                              @RequestParam(name = "maxComments", defaultValue = "2") @Min(1) @Max(100) Integer maxComments) {
+        return channelService.getChannelWithVideos(channelHandle, maxVideos, maxComments);
+    }
+
+    @PostMapping("/{channelHandle}")
+    public Channel postChannel(@PathVariable String channelHandle,
+                              @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos,
+                              @RequestParam(name = "maxComments", defaultValue = "2") @Min(1) @Max(100) Integer maxComments) {
+        return channelService.getChannelWithVideos(channelHandle, maxVideos, maxComments);
     }
 }

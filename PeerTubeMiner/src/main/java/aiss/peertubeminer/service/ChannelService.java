@@ -26,10 +26,10 @@ public class ChannelService {
         return channel;
     }
 
-    public Channel getChannelWithVideos(String channelHandle, Integer maxVideos){
+    public Channel getChannelWithVideos(String channelHandle, Integer maxVideos, Integer maxComments){
         Channel channel = getChannel(channelHandle);
         List<Video> videos = videoService.getVideosFromChannel(channelHandle, maxVideos);
-        List<Video> videosWithCC = videoService.getVideosWithCC(videos);
+        List<Video> videosWithCC = videoService.getVideosWithCC(videos, maxComments);
 
         channel.setVideos(videosWithCC);
         return channel;

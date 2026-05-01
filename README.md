@@ -1,9 +1,8 @@
 # Proyecto-AISS
 Proyecto de integración.
 
-## PeerTube
-  Hay que hacer los servicios 
-  En los models hay que añadir las relaciones entre clases? 
+To do:
 
-## Dailymotion
-  Hacer las clases POJO
+· Preparar los models de videominer para base de datos (Lab7)
+· Hacer el control de excepciones en los controllers de videominer
+· Exceptions en PeerTube y Dailymotion, qué comprobamos, si existe el canal??

@@ -16,7 +16,7 @@ public class ChannelService {
     VideoService videoService;
 
     String baseUri = "https://api.dailymotion.com";
-    String videoMinerUri = "http://localhost:8080/api/channels";
+    String videoMinerUri = "http://localhost:8080/videominer/v1/channels";
 
     // GET https://api.dailymotion.com/user/{userId}
     public VMChannel getChannel(String userId, int maxVideos, int maxPages){

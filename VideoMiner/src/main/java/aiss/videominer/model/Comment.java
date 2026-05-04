@@ -2,7 +2,7 @@ package aiss.videominer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 
 /**
  * @author Juan C. Alonso
@@ -12,21 +12,33 @@ import jakarta.validation.constraints.NotNull;
 public class Comment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private String id;
+    private long id;
 
+    @Column(name = "text", columnDefinition = "TEXT")
+    @NotEmpty(message = "Comment text cannot be empty")
     @JsonProperty("text")
-    @Column(columnDefinition="TEXT")
     private String text;
 
+    @Column(name = "createdOn")
+    @NotEmpty(message = "Comment creation date cannot be empty")
     @JsonProperty("createdOn")
     private String createdOn;
 
-    public String getId() {
+    public Comment() {
+    }
+
+    public Comment(String text, String createdOn) {
+        this.text = text;
+        this.createdOn = createdOn;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

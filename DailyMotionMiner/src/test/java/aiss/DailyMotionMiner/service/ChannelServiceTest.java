@@ -15,7 +15,7 @@ class ChannelServiceTest {
     @Test
     @DisplayName("Get channel by Id")
     void getChannelById() {
-        Channel result = channelService.getChannel("x4zjqxy");
+        Channel result = channelService.getChannel("x4zjqxy",10,1);
         Assertions.assertNotNull(result);
         System.out.println(result);
     }

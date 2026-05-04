@@ -7,7 +7,7 @@ import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import aiss.DailyMotionMiner.model.videominer.VMCaption;
 import aiss.DailyMotionMiner.model.videominer.VMComment;
 import aiss.DailyMotionMiner.model.videominer.VMVideo;
-import aiss.videominer.model.Comment;
+//import aiss.videominer.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;

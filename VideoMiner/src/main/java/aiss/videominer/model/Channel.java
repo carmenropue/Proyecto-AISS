@@ -17,28 +17,31 @@ public class Channel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("id")
     private long id;
 
-    @JsonProperty("name")
+    @Column(name = "name")
     @NotEmpty(message = "Channel name cannot be empty")
     private String name;
 
-    @JsonProperty("description")
-    @Column(columnDefinition="TEXT")
+
+    @Column(name="description")
     private String description;
 
-    @JsonProperty("createdTime")
+    @Column(name="createdTime")
     @NotEmpty(message = "Channel creation time cannot be empty")
     private String createdTime;
 
-    @JsonProperty("videos")
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "channelId")
     private List<Video> videos = new ArrayList<>();
 
     public Channel() {
-        this.videos = new ArrayList<>();
+    }
+    public Channel(String name, String description, String createdTime) {
+        this.name = name;
+        this.description = description;
+        this.createdTime = createdTime;
     }
 
     public long getId() {

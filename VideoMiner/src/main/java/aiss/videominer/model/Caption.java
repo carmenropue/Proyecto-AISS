@@ -1,10 +1,8 @@
 package aiss.videominer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 /**
  * @author Juan C. Alonso
@@ -17,12 +15,23 @@ public class Caption {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "link")
+    @NotEmpty(message = "Caption link cannot be empty")
     @JsonProperty("link")
     private String link;
 
+    @Column(name = "language")
+    @NotEmpty(message = "Caption language cannot be empty")
     @JsonProperty("language")
     private String language;
 
+    public Caption() {
+    }
+
+    public Caption(String link, String language) {
+        this.link = link;
+        this.language = language;
+    }
 
     public long getId() {
         return id;
@@ -32,11 +41,11 @@ public class Caption {
         this.id = id;
     }
 
-    public String getName() {
+    public String getLink() {
         return link;
     }
 
-    public void setName(String name) {
+    public void setLink(String link) {
         this.link = link;
     }
 
@@ -52,7 +61,7 @@ public class Caption {
     public String toString() {
         return "Caption{" +
                 "id='" + id + '\'' +
-                ", name='" + link + '\'' +
+                ", link='" + link + '\'' +
                 ", language='" + language + '\'' +
                 '}';
     }

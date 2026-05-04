@@ -7,7 +7,6 @@ import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import aiss.DailyMotionMiner.model.videominer.VMCaption;
 import aiss.DailyMotionMiner.model.videominer.VMComment;
 import aiss.DailyMotionMiner.model.videominer.VMVideo;
-import aiss.videominer.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -45,7 +44,7 @@ public class VideoService {
         List<VMVideo> vmVideos = new ArrayList<>();
         try{
             for (int page = 1; page <= maxPages; page++){
-                String uri = baseUri+"/user/"+userId+"/videos?limit="+ maxVideos +  "&page=" + page + "?fields=id,title,description,created_time,tags";
+                String uri = baseUri+"/user/"+userId+"/videos?limit="+ maxVideos +  "&page=" + page + "&fields=id,title,description,created_time,tags";
 
                 VideoList dmVideos = restTemplate.getForObject(uri, VideoList.class);
 

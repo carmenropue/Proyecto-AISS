@@ -8,8 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="integracion" />
         <module name="videominer" />
+        <module name="integracion (1)" />
         <module name="PeerTubeMiner" />
+        <module name="DailyMotionMiner (1)" />
         <module name="DailyMotionMiner" />
+        <module name="videominer (1)" />
       </profile>
     </annotationProcessing>
   </component>

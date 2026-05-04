@@ -1,6 +1,7 @@
 package aiss.DailyMotionMiner.model.dailymotion;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.processing.Generated;
 
@@ -25,6 +26,9 @@ public class Video {
     private String description;
     @JsonProperty("created_time")
     private Integer createdTime;
+    //Propiedad añadida
+    @JsonProperty("tags")
+    private List<String> tags;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -66,6 +70,16 @@ public class Video {
     @JsonProperty("created_time")
     public void setCreatedTime(Integer createdTime) {
         this.createdTime = createdTime;
+    }
+
+    @JsonProperty("tags")
+    public List<String> getTags() {
+        return tags;
+    }
+
+    @JsonProperty("tags")
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 
     @JsonAnyGetter

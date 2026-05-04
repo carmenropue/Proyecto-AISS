@@ -1,6 +1,6 @@
 package aiss.DailyMotionMiner.service;
 
-import aiss.DailyMotionMiner.model.dailymotion.Channel;
+import aiss.DailyMotionMiner.model.videominer.VMChannel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ class ChannelServiceTest {
     @Test
     @DisplayName("Get channel by Id")
     void getChannelById() {
-        Channel result = channelService.getChannel("x4zjqxy",10,1);
+        VMChannel result = channelService.getChannel("x4zjqxy", 10, 1);
         Assertions.assertNotNull(result);
         System.out.println(result);
     }

@@ -1,7 +1,7 @@
 package aiss.DailyMotionMiner.service;
 
 import aiss.DailyMotionMiner.model.dailymotion.Video;
-import aiss.DailyMotionMiner.model.dailymotion.VideoList;
+import aiss.DailyMotionMiner.model.videominer.VMVideo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,20 +25,8 @@ public class videoServiceTests {
     @Test
     @DisplayName("Get videos from channel")
     void testGetVideosFromChannel(){
-        VideoList result = videoService.getVideosFromChannel("x4zjqxy");
+        List<VMVideo> result = videoService.getVideosFromChannel("x4zjqxy", 10, 1);
         Assertions.assertNotNull(result);
-        printVideos(result);
-    }
-    void printVideos(VideoList videos){
-        System.out.println("Page: " + videos.getPage());
-        System.out.println("Limit: " + videos.getLimit());
-        System.out.println("Total: " + videos.getTotal());
-        System.out.println("Has more: " + videos.getHasMore());
-        System.out.println("Explicit: " + videos.getExplicit());
-        System.out.println("\n=== Videos ===\n");
-        for (Video video : videos.getList()){
-            System.out.println(video+"\n");
-
-        }
+        System.out.println(result);
     }
 }

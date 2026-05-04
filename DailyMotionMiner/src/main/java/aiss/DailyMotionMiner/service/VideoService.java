@@ -45,7 +45,7 @@ public class VideoService {
         List<VMVideo> vmVideos = new ArrayList<>();
         try{
             for (int page = 1; page <= maxPages; page++){
-                String uri = baseUri+"/user/"+userId+"/videos?limit="+ maxVideos +  "&page=" + page + "?fields=id,title,description,created_time,tags";
+                String uri = baseUri+"/user/"+userId+"/videos?limit="+ maxVideos +  "&page=" + page + "&fields=id,title,description,created_time,tags";
 
                 VideoList dmVideos = restTemplate.getForObject(uri, VideoList.class);
 

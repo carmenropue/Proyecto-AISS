@@ -12,7 +12,7 @@ public class VideoMapper {
     public static VMVideo toVMVideo(Video dmVideo) {
         VMVideo vmVideo = new VMVideo();
 
-        vmVideo.setId(dmVideo.getId());
+
         vmVideo.setName(dmVideo.getTitle());
         vmVideo.setDescription(dmVideo.getDescription());
 
@@ -25,7 +25,6 @@ public class VideoMapper {
         if (dmVideo.getTags() != null) {
             for (String tag : dmVideo.getTags()) {
                 VMComment comment = new VMComment();
-                comment.setId(UUID.randomUUID().toString());
                 comment.setText(tag);
                 comment.setCreatedOn(vmVideo.getReleaseTime());
                 vmComments.add(comment);

@@ -1,5 +1,6 @@
 package aiss.DailyMotionMiner.service;
 
+import aiss.DailyMotionMiner.mapper.ChannelMapper;
 import aiss.DailyMotionMiner.model.dailymotion.Channel;
 import aiss.DailyMotionMiner.model.videominer.VMChannel;import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class ChannelService {
     VideoService videoService;
 
     String baseUri = "https://api.dailymotion.com";
-    String videoMinerUri = "http://localhost:8080/api/channels";
+    String videoMinerUri = "http://localhost:8080/videominer/v1/channels";
 
     // GET https://api.dailymotion.com/user/{userId}
     public VMChannel getChannel(String userId, int maxVideos, int maxPages){
@@ -25,13 +26,7 @@ public class ChannelService {
             Channel dmChannel = restTemplate.getForObject(uri, Channel.class);
 
             if(dmChannel != null){
-                VMChannel vmChannel = new VMChannel();
-                vmChannel.setId(dmChannel.getId());
-                vmChannel.setName(dmChannel.getScreenname());
-                vmChannel.setDescription(dmChannel.getDescription());
-                if(dmChannel.getCreatedTime() != null){
-                    vmChannel.setCreatedTime(String.valueOf(dmChannel.getCreatedTime()));
-                }
+                VMChannel vmChannel = ChannelMapper.toVMChannel(dmChannel);
                 vmChannel.setVideos(videoService.getVideosFromChannel(userId, maxVideos, maxPages));
                 return vmChannel;
             }

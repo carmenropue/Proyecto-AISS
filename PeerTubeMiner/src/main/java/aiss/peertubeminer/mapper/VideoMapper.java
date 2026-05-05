@@ -11,7 +11,30 @@ public class VideoMapper {
         vm.setId(String.valueOf(video.getId()));
         vm.setName(video.getName());
         vm.setDescription(video.getDescription());
-        vm.setRealeaseTime(video.getPublishedAt());
+
+        if (video.getPublishedAt() != null && !video.getPublishedAt().isBlank()) {
+            vm.setReleaseTime(video.getPublishedAt());
+        }
+
+        if (video.getAccount() != null) {
+            vm.setAuthor(UserMapper.toVMUser(video.getAccount()));
+        }
+
+        if (video.getComments() != null) {
+            vm.setComments(
+                    video.getComments().stream()
+                            .map(CommentMapper::toVMComment)
+                            .toList()
+            );
+        }
+
+        if (video.getCaptions() != null) {
+            vm.setCaptions(
+                    video.getCaptions().stream()
+                            .map(CaptionMapper::toVMCaption)
+                            .toList()
+            );
+        }
 
         return vm;
     }

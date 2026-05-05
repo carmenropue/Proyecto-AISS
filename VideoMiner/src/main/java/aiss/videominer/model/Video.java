@@ -3,8 +3,8 @@ package aiss.videominer.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,31 +19,42 @@ public class Video {
     @JsonProperty("id")
     private long id;
 
-    @JsonProperty("name")
+    @Column(name = "name")
     @NotEmpty(message = "Video name cannot be empty")
+    @JsonProperty("name")
     private String name;
 
+    @Column(name = "description", columnDefinition = "TEXT")
     @JsonProperty("description")
-    @Column(columnDefinition="TEXT")
     private String description;
 
-    @JsonProperty("releaseTime")
+    @Column(name = "releaseTime")
     @NotEmpty(message = "Video release time cannot be empty")
+    @JsonProperty("releaseTime")
     private String releaseTime;
 
-    @JsonProperty("user")
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonProperty("user")
     private User author;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "videoId")
     @JsonProperty("comments")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "videoId")
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
-    @JsonProperty("captions")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "videoId")
-    private List<Caption> captions;
+    @JsonProperty("captions")
+    private List<Caption> captions = new ArrayList<>();
+
+    public Video() {
+    }
+
+    public Video(String name, String description, String releaseTime) {
+        this.name = name;
+        this.description = description;
+        this.releaseTime = releaseTime;
+    }
 
     public long getId() {
         return id;

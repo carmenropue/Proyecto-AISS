@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("peertubeminer/api/v1") //cómo diferencio de dailymotion?
+@RequestMapping("peertubeminer/api/v1")
 public class PeerTubeController {
 
     @Autowired
@@ -20,5 +20,14 @@ public class PeerTubeController {
     public VMChannel getChannel(@PathVariable String channelHandle,
                                 @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos) {
         return channelService.getChannelAndSendToMiner(channelHandle, maxVideos); //Se diferencian en los servicios, cada uno consume su API (PeerTube o DailyMotion) pero ambos devuelven el mismo modelo para VideoMiner.
+    }
+    //Operacion POST
+    //TODO Añadir maxPages a la uri de peertube
+    @PostMapping("/{id}")
+    public VMChannel SendChannel(
+            @PathVariable String id,
+            @RequestParam(defaultValue = "10") int maxVideos,
+            @RequestParam(defaultValue = "2") int maxPages){
+        return channelService.getChannelAndSendToMiner(id,maxVideos);
     }
 }

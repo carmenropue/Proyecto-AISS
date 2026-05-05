@@ -1,6 +1,7 @@
 package aiss.peertubeminer.controller;
 
 import aiss.peertubeminer.model.peertube.Channel;
+import aiss.peertubeminer.model.videominer.VMChannel;
 import aiss.peertubeminer.service.ChannelService;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -16,8 +17,8 @@ public class PeerTubeController {
     ChannelService channelService;
 
     @GetMapping("/{channelHandle}")
-    public Channel getChannel(@PathVariable String channelHandle,
-                              @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos) {
-        return channelService.getChannelWithVideos(channelHandle, maxVideos);
+    public VMChannel getChannel(@PathVariable String channelHandle,
+                                @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos) {
+        return channelService.getChannelAndSendToMiner(channelHandle, maxVideos); //Se diferencian en los servicios, cada uno consume su API (PeerTube o DailyMotion) pero ambos devuelven el mismo modelo para VideoMiner.
     }
 }

@@ -9,10 +9,15 @@ import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import aiss.DailyMotionMiner.model.videominer.VMCaption;
 import aiss.DailyMotionMiner.model.videominer.VMVideo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +28,9 @@ public class VideoService {
     @Autowired
     RestTemplate restTemplate;
     String baseUri = "https://api.dailymotion.com";
-
+    String tokenBaseUri = "https://partner.api.dailymotion.com/rest";
+    @Value("${dailymotionminer.token}")
+    private String bearerToken;
     //GET https://api.dailymotion.com/video/{videoId}
     public Video getVideoFromId(String id){
         String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time";
@@ -68,10 +75,21 @@ public class VideoService {
 
     private List<VMCaption> getCaptionsFromVideo(String videoId) {
         List<VMCaption> vmCaptions = new ArrayList<>();
-        String uri = baseUri + "/video/" + videoId + "/subtitles";
+        String uri = tokenBaseUri + "/video/" + videoId + "/subtitles";
 
         try{
-            Captions dmCaptions = restTemplate.getForObject(uri, Captions.class);
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer " + bearerToken);
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+            ResponseEntity<Captions> response = restTemplate.exchange(
+                    uri,
+                    HttpMethod.GET,
+                    entity,
+                    Captions.class
+            );
+
+            Captions dmCaptions = response.getBody();
             if (dmCaptions != null && dmCaptions.getList() != null) {
                 for(CaptionsItem dmCaption : dmCaptions.getList()) {
                     vmCaptions.add(CaptionMapper.toVMCaption(dmCaption));

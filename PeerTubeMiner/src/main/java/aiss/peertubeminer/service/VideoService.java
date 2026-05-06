@@ -73,10 +73,10 @@ public class VideoService {
         return videos;
     }
 
-    public List<Video> getVideosWithCC(List<Video> videos) {
+    public List<Video> getVideosWithCC(List<Video> videos, Integer maxComments) {
 
         for (Video video : videos) {
-            List<Comment> comments = commentService.getCommentsFromVideo(video.getId());
+            List<Comment> comments = commentService.getCommentsFromVideo(video.getId(), maxComments);
             List<Caption> captions = captionService.getCaptionsFromVideo(video.getId());
 
             video.setComments(comments);

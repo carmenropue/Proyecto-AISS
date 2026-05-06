@@ -32,7 +32,7 @@ public class ChannelService {
     }
 
     //GET https://peertube.tv/api/v1/video-channels/{channelHandle}  channelHandle: transport_evolved_main
-    public VMChannel getChannelWithVideos(String channelHandle, int maxVideos) {
+    public VMChannel getChannelWithVideos(String channelHandle, Integer maxVideos, Integer maxComments) {
         String uri = baseURI + "/video-channels/" + channelHandle;
         try {
             Channel ptChannel = restTemplate.getForObject(uri, Channel.class);
@@ -41,7 +41,7 @@ public class ChannelService {
                 VMChannel vmChannel = ChannelMapper.toVMChannel(ptChannel);
 
                 List<Video> videos = videoService.getVideosFromChannel(channelHandle, maxVideos);
-                List<Video> videosWithCC = videoService.getVideosWithCC(videos);
+                List<Video> videosWithCC = videoService.getVideosWithCC(videos, maxComments);
                 List<VMVideo> vmVideos = videosWithCC.stream().filter(v -> v.getPublishedAt() != null && !v.getPublishedAt().isBlank())
                         .map(VideoMapper::toVMVideo)
                         .toList();
@@ -58,8 +58,8 @@ public class ChannelService {
         return null;
     }
 
-    public VMChannel getChannelAndSendToMiner (String channelHandle, int maxVideos){
-        VMChannel vmChannel = getChannelWithVideos(channelHandle, maxVideos);
+    public VMChannel getChannelAndSendToMiner (String channelHandle, Integer maxVideos, Integer maxComments) {
+        VMChannel vmChannel = getChannelWithVideos(channelHandle, maxVideos, maxComments);
 
         if (vmChannel != null) {
             sendToVideoMiner(vmChannel);

@@ -71,7 +71,7 @@ http://localhost:8082/dailymotion/x43py0?maxVideos=10&maxPages=2
 
 ### VideoMiner
 
-## VideoMiner - Captions
+#### VideoMiner - Captions
 
 Obtiene todas las captions almacenadas.
 
@@ -98,7 +98,7 @@ Elimina una caption.
 DELETE:
 http://localhost:8080/videominer/v1/captions/{id}
 
-## VideoMiner - Channels
+#### VideoMiner - Channels
 
 Obtiene todos los canales almacenados.
 
@@ -125,7 +125,7 @@ Elimina un canal.
 DELETE:
 http://localhost:8080/videominer/v1/channels/{id}
 
-## VideoMiner - Comments
+#### VideoMiner - Comments
 
 Obtiene todos los comentarios almacenados.
 
@@ -152,7 +152,7 @@ Elimina un comentario.
 DELETE:
 http://localhost:8080/videominer/v1/comments/{id}
 
-## VideoMiner - Videos
+#### VideoMiner - Videos
 
 Obtiene todos los vídeos almacenados.
 

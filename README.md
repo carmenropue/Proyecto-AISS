@@ -35,27 +35,171 @@ Proyecto de integración desarrollado con Spring Boot para obtener información 
 
 ### PeerTubeMiner
 
+Obtiene un canal de PeerTube.
+
 GET:
-http://localhost:8081/peertubeminer/api/v1/transport_evolved_main?maxVideos=5
+http://localhost:8081/peertubeminer/api/v1/{channelHandle}?maxVideos=5&maxComments=2
+
+Ejemplo:
+http://localhost:8081/peertubeminer/api/v1/transport_evolved_main?maxVideos=5&maxComments=2
+
+Envía el canal de PeerTube a VideoMiner.
+
+POST:
+http://localhost:8081/peertubeminer/api/v1/{channelHandle}?maxVideos=5&maxComments=2
+
+Ejemplo:
+http://localhost:8081/peertubeminer/api/v1/transport_evolved_main?maxVideos=5&maxComments=2
 
 ### DailyMotionMiner
 
+Obtiene un canal de DailyMotion.
+
 GET:
-http://localhost:8082/dailymotion/x43py0?maxVideos=5&maxPages=1
+http://localhost:8082/dailymotion/{id}?maxVideos=10&maxPages=2
+
+Ejemplo:
+http://localhost:8082/dailymotion/x43py0?maxVideos=10&maxPages=2
+
+Envía el canal de DailyMotion a VideoMiner.
+
+POST:
+http://localhost:8082/dailymotion/{id}?maxVideos=10&maxPages=2
+
+Ejemplo:
+http://localhost:8082/dailymotion/x43py0?maxVideos=10&maxPages=2
 
 ### VideoMiner
+
+## VideoMiner - Captions
+
+Obtiene todas las captions almacenadas.
+
+GET:
+http://localhost:8080/videominer/v1/captions
+
+Obtiene una caption por ID.
+
+GET:
+http://localhost:8080/videominer/v1/captions/{id}
+
+Obtiene las captions de un vídeo concreto.
+
+GET:
+http://localhost:8080/videominer/v1/videos/{videoId}/captions
+
+Crea una nueva caption para un vídeo.
+
+POST:
+http://localhost:8080/videominer/v1/videos/{videoId}/captions
+
+Elimina una caption.
+
+DELETE:
+http://localhost:8080/videominer/v1/captions/{id}
+
+## VideoMiner - Channels
+
+Obtiene todos los canales almacenados.
 
 GET:
 http://localhost:8080/videominer/v1/channels
 
+Obtiene un canal por ID.
+
 GET:
-http://localhost:8080/videominer/v1/videos
+http://localhost:8080/videominer/v1/channels/{id}
+
+Crea un nuevo canal.
+
+POST:
+http://localhost:8080/videominer/v1/channels
+
+Actualiza un canal existente.
+
+PUT:
+http://localhost:8080/videominer/v1/channels/{id}
+
+Elimina un canal.
+
+DELETE:
+http://localhost:8080/videominer/v1/channels/{id}
+
+## VideoMiner - Comments
+
+Obtiene todos los comentarios almacenados.
 
 GET:
 http://localhost:8080/videominer/v1/comments
 
+Obtiene un comentario por ID.
+
 GET:
-http://localhost:8080/videominer/v1/captions
+http://localhost:8080/videominer/v1/comments/{id}
+
+Obtiene los comentarios de un vídeo concreto.
+
+GET:
+http://localhost:8080/videominer/v1/videos/{videoId}/comments
+
+Crea un nuevo comentario para un vídeo.
+
+POST:
+http://localhost:8080/videominer/v1/videos/{videoId}/comments
+
+Elimina un comentario.
+
+DELETE:
+http://localhost:8080/videominer/v1/comments/{id}
+
+## VideoMiner - Videos
+
+Obtiene todos los vídeos almacenados.
+
+GET:
+http://localhost:8080/videominer/v1/videos
+
+Obtiene un vídeo por ID.
+
+GET:
+http://localhost:8080/videominer/v1/videos/{id}
+
+Obtiene todos los vídeos de un canal concreto.
+
+GET:
+http://localhost:8080/videominer/v1/channels/{channelId}/videos
+
+Crea un nuevo vídeo en un canal.
+
+POST:
+http://localhost:8080/videominer/v1/channels/{channelId}/videos
+
+Actualiza un vídeo existente.
+
+PUT:
+http://localhost:8080/videominer/v1/videos/{id}
+
+Elimina un vídeo.
+
+DELETE:
+http://localhost:8080/videominer/v1/videos/{id}
+
+Obtiene el usuario de un vídeo.
+
+GET:
+http://localhost:8080/videominer/v1/videos/{id}/user
+
+Actualiza el usuario de un vídeo.
+
+PUT:
+http://localhost:8080/videominer/v1/videos/{id}/user
+
+## Notas
+
+- DailyMotion utiliza IDs de tipo String, mientras que VideoMiner genera IDs numéricos automáticamente.
+- Por ese motivo, los IDs externos de DailyMotion no se almacenan directamente.
+- Las captions de DailyMotion se obtienen desde el endpoint de subtitles.
+- Algunos vídeos de DailyMotion pueden no tener captions disponibles y devolver una lista vacía.
 
 
 

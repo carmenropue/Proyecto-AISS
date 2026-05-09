@@ -29,7 +29,7 @@ public class CaptionController {
     }
 
     @GetMapping("/captions/{id}")
-    public Caption findById(@PathVariable String id) {
+    public Caption findById(@PathVariable Long id) {
         Optional<Caption> caption = captionRepository.findById(id);
         if (caption.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Caption not found");
@@ -38,7 +38,7 @@ public class CaptionController {
 
     // Captions de un video concreto
     @GetMapping("/videos/{videoId}/captions")
-    public List<Caption> findByVideo(@PathVariable String videoId) {
+    public List<Caption> findByVideo(@PathVariable Long videoId) {
         Optional<Video> video = videoRepository.findById(videoId);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
@@ -47,7 +47,7 @@ public class CaptionController {
 
     @PostMapping("/videos/{videoId}/captions")
     @ResponseStatus(HttpStatus.CREATED)
-    public Caption create(@PathVariable String videoId, @RequestBody @Valid Caption caption) {
+    public Caption create(@PathVariable Long videoId, @RequestBody @Valid Caption caption) {
         Optional<Video> video = videoRepository.findById(videoId);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
@@ -58,7 +58,7 @@ public class CaptionController {
 
     @DeleteMapping("/captions/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable Long id) {
         if (!captionRepository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Caption not found");
         captionRepository.deleteById(id);

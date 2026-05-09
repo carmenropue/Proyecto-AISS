@@ -59,6 +59,18 @@ public class PeerTubeController {
         return video;
     }
 
+    // Alias informativo dentro del mismo controlador: /peertubeminer/api/v1/tv
+    @GetMapping(value = "/tv", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+    public java.util.Map<String, Object> infoAlias() {
+        java.util.Map<String, Object> m = new java.util.LinkedHashMap<>();
+        m.put("message", "PeerTubeMiner - rutas disponibles (desde PeerTubeController)");
+        m.put("channels_get", "/peertubeminer/api/v1/{channelHandle}  (GET)");
+        m.put("channels_post", "/peertubeminer/api/v1/{id}  (POST)");
+        m.put("video_get", "/peertubeminer/api/v1/video/{id}?maxComments=2  (GET)");
+        m.put("swagger_ui", "/swagger-ui.html");
+        return m;
+    }
+
     //Operacion POST
     //TODO Añadir maxPages a la uri de peertube
     @Operation(summary = "Send channel information to miner",

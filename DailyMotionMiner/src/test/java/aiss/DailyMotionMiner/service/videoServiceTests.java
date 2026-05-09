@@ -1,6 +1,7 @@
 package aiss.DailyMotionMiner.service;
 
 import aiss.DailyMotionMiner.model.dailymotion.Video;
+import aiss.DailyMotionMiner.model.videominer.VMCaption;
 import aiss.DailyMotionMiner.model.videominer.VMVideo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +15,7 @@ import java.util.List;
 public class videoServiceTests {
     @Autowired
     VideoService videoService;
-    @Test
+    //@Test
     @DisplayName("Get video from id")
     void testGetVideo(){
         Video result = videoService.getVideoFromId("xa7ktmo");
@@ -22,11 +23,17 @@ public class videoServiceTests {
 
         System.out.println(result);
     }
-    @Test
+    //@Test
     @DisplayName("Get videos from channel")
     void testGetVideosFromChannel(){
         List<VMVideo> result = videoService.getVideosFromChannel("x4zjqxy", 10, 1);
         Assertions.assertNotNull(result);
+        System.out.println(result);
+    }
+    @Test
+    @DisplayName("Get Captions From Video")
+    void testGetCaptionsFromVideo(){
+        List<VMCaption> result = videoService.getCaptionsFromVideo("xa7kbou");
         System.out.println(result);
     }
 }

@@ -55,4 +55,16 @@ public class VMVideo {
     public void setComments(List<VMComment> comments) {
         this.comments = comments;
     }
+
+    @Override
+    public String toString() {
+        return "VMVideo{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", releaseTime='" + releaseTime + '\'' +
+                ", comments=" + comments +
+                ", captions=" + captions +
+                '}';
+    }
 }

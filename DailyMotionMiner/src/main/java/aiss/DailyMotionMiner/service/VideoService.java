@@ -96,9 +96,10 @@ public class VideoService {
         return response.getBody().get("access_token").toString();
     }
 
-    private List<VMCaption> getCaptionsFromVideo(String videoId) {
+    public List<VMCaption> getCaptionsFromVideo(String videoId) {
         List<VMCaption> vmCaptions = new ArrayList<>();
-        String uri = baseUri + "/video/" + videoId + "/subtitles";
+        String uri = baseUri + "/video/" + videoId + "/subtitles"
+                +"&fields=id,url,language";
 
         try{
             String token = getAccessToken();

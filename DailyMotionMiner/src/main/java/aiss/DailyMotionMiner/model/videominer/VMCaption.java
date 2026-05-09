@@ -32,4 +32,13 @@ public class VMCaption {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+    @Override
+    public String toString() {
+        return "VMCaption{" +
+                "id='" + id + '\'' +
+                ", link='" + link + '\'' +
+                ", language='" + language + '\'' +
+                '}';
+    }
 }

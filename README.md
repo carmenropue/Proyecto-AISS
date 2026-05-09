@@ -201,8 +201,3 @@ http://localhost:8080/videominer/v1/videos/{id}/user
 - Las captions de DailyMotion se obtienen desde el endpoint de subtitles.
 - Algunos vídeos de DailyMotion pueden no tener captions disponibles y devolver una lista vacía.
 
-
-
-To do:
-
-- Arreglar DailyMotion, no salen los captions(hay que hacer un token) y los comments tampoco salen

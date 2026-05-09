@@ -16,8 +16,8 @@ import java.util.List;
 public class Channel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @JsonProperty("id")
+    private String id;
 
     @Column(name = "name")
     @NotEmpty(message = "Channel name cannot be empty")
@@ -44,11 +44,11 @@ public class Channel {
         this.createdTime = createdTime;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

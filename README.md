@@ -196,8 +196,5 @@ http://localhost:8080/videominer/v1/videos/{id}/user
 
 ## Notas
 
-- DailyMotion utiliza IDs de tipo String, mientras que VideoMiner genera IDs numéricos automáticamente.
-- Por ese motivo, los IDs externos de DailyMotion no se almacenan directamente.
-- Las captions de DailyMotion se obtienen desde el endpoint de subtitles.
 - Algunos vídeos de DailyMotion pueden no tener captions disponibles y devolver una lista vacía.
 

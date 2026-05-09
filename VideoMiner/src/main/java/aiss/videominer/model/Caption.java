@@ -12,8 +12,9 @@ import jakarta.validation.constraints.NotEmpty;
 public class Caption {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private String id;
+    private Long id;
 
     @Column(name = "link")
     @NotEmpty(message = "Caption link cannot be empty")
@@ -33,11 +34,11 @@ public class Caption {
         this.language = language;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,7 +61,7 @@ public class Caption {
     @Override
     public String toString() {
         return "Caption{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", link='" + link + '\'' +
                 ", language='" + language + '\'' +
                 '}';

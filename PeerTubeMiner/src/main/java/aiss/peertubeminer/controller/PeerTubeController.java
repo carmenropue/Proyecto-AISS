@@ -1,14 +1,19 @@
 package aiss.peertubeminer.controller;
 
-import aiss.peertubeminer.model.peertube.Channel;
 import aiss.peertubeminer.model.videominer.VMChannel;
 import aiss.peertubeminer.service.ChannelService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import org.springframework.beans.MethodInvocationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "PeerTube", description = "PeerTube API operations")
 @RestController
 @RequestMapping("peertubeminer/api/v1")
 public class PeerTubeController {
@@ -16,6 +21,13 @@ public class PeerTubeController {
     @Autowired
     ChannelService channelService;
 
+    @Operation(summary = "Get channel information",
+            description = "Retrieve channel information and videos from PeerTube",
+            tags = {"PeerTube", "getChannel"})
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = VMChannel.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())})
+    })
     @GetMapping("/{channelHandle}")
     public VMChannel getChannel(@PathVariable String channelHandle,
                                 @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos,
@@ -24,6 +36,13 @@ public class PeerTubeController {
     }
     //Operacion POST
     //TODO Añadir maxPages a la uri de peertube
+    @Operation(summary = "Send channel information to miner",
+            description = "Retrieve channel information and videos from PeerTube and send it to the miner",
+            tags = {"PeerTube", "postChannel"})
+    @ApiResponses({
+            @ApiResponse(responseCode = "202", content = {@Content(schema = @Schema(implementation = VMChannel.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())})
+    })
     @PostMapping("/{id}")
     public VMChannel SendChannel(
             @PathVariable String id,

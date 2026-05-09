@@ -1,4 +1,5 @@
 package aiss.DailyMotionMiner.model.dailymotion;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.annotation.processing.Generated;

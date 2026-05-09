@@ -30,7 +30,7 @@ public class VideoService {
 
     //GET https://api.dailymotion.com/video/{videoId}
     public Video getVideoFromId(String id){
-        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time";
+        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time,tags";
         try{
             return restTemplate.getForObject(uri, Video.class);
         } catch ( HttpClientErrorException e){
@@ -41,6 +41,17 @@ public class VideoService {
             System.err.println("Unexpected error: " + e.getMessage());
         }
         return null;
+    }
+
+    public VMVideo getVMVideoFromId(String id) {
+        Video dmVideo = getVideoFromId(id);
+        if (dmVideo == null) {
+            return null;
+        }
+
+        VMVideo vmVideo = VideoMapper.toVMVideo(dmVideo);
+        vmVideo.setCaptions(getCaptionsFromVideo(id));
+        return vmVideo;
     }
     //GET  https://api.dailymotion.com/user/{userId}/videos
 
@@ -99,7 +110,7 @@ public class VideoService {
     public List<VMCaption> getCaptionsFromVideo(String videoId) {
         List<VMCaption> vmCaptions = new ArrayList<>();
         String uri = baseUri + "/video/" + videoId + "/subtitles"
-                +"&fields=id,url,language";
+                +"?fields=id,url,language";
 
         try{
             String token = getAccessToken();

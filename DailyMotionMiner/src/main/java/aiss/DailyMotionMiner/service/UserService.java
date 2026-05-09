@@ -1,6 +1,6 @@
 package aiss.DailyMotionMiner.service;
 
-import aiss.DailyMotionMiner.model.dailymotion.Video;
+import aiss.DailyMotionMiner.mapper.UserMapper;
 import aiss.DailyMotionMiner.model.videominer.VMUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class UserService {
                 +"?fields=id,username,url,avatar_25_url";
         try{
             User dmUser = restTemplate.getForObject(uri, User.class);
-            VMUser vmUser = UserMapper.toVMUser(dmUser);
+            return UserMapper.toVMUser(dmUser);
         } catch ( HttpClientErrorException e){
             System.err.println("Client error: " +e.getStatusCode() +" - "+e.getResponseBodyAsString());
         } catch ( HttpServerErrorException e){

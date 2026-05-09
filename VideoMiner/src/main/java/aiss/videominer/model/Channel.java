@@ -1,6 +1,7 @@
 package aiss.videominer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -13,12 +14,18 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Channel")
+@JsonPropertyOrder({
+        "id",
+        "name",
+        "description",
+        "createdTime",
+        "videos"
+})
 public class Channel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private Long id;
+    private String id;
 
     @Column(name = "name")
     @NotEmpty(message = "Channel name cannot be empty")
@@ -45,13 +52,11 @@ public class Channel {
         this.createdTime = createdTime;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(String id) {this.id = id;}
 
     public String getName() {
         return name;

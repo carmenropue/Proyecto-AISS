@@ -30,7 +30,7 @@ public class VideoController {
     }
 
     @GetMapping("/videos/{id}")
-    public Video findById(@PathVariable Long id) {
+    public Video findById(@PathVariable String id) {
         Optional<Video> video = videoRepository.findById(id);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
@@ -39,7 +39,7 @@ public class VideoController {
 
     // Obtener todos los videos de un canal
     @GetMapping("/channels/{channelId}/videos")
-    public List<Video> findByChannel(@PathVariable Long channelId) {
+    public List<Video> findByChannel(@PathVariable String channelId) {
         Optional<Channel> channel = channelRepository.findById(channelId);
         if (channel.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Channel not found");
@@ -48,7 +48,7 @@ public class VideoController {
 
     @PostMapping("/channels/{channelId}/videos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Video create(@PathVariable Long channelId, @RequestBody @Valid Video video) {
+    public Video create(@PathVariable String channelId, @RequestBody @Valid Video video) {
         Optional<Channel> channel = channelRepository.findById(channelId);
         if (channel.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Channel not found");
@@ -59,7 +59,7 @@ public class VideoController {
 
     @PutMapping("/videos/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @RequestBody @Valid Video updatedVideo) {
+    public void update(@PathVariable String id, @RequestBody @Valid Video updatedVideo) {
         Optional<Video> video = videoRepository.findById(id);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
@@ -72,28 +72,28 @@ public class VideoController {
 
     @DeleteMapping("/videos/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable String id) {
         if (!videoRepository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
         videoRepository.deleteById(id);
     }
     // Obtener el usuario de un video concreto
     @GetMapping("/videos/{id}/user")
-    public User findUserByVideo(@PathVariable Long id) {
+    public User findUserByVideo(@PathVariable String id) {
         Optional<Video> video = videoRepository.findById(id);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
-        return video.get().getAuthor();
+        return video.get().getUser();
     }
 
     // Actualizar el usuario de un video
     @PutMapping("/videos/{id}/user")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateUser(@PathVariable Long id, @RequestBody @Valid User updatedUser) {
+    public void updateUser(@PathVariable String id, @RequestBody @Valid User updatedUser) {
         Optional<Video> video = videoRepository.findById(id);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
-        video.get().setAuthor(updatedUser);
+        video.get().setUser(updatedUser);
         videoRepository.save(video.get());
     }
 }

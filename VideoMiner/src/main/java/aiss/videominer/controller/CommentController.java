@@ -29,7 +29,7 @@ public class CommentController {
     }
 
     @GetMapping("/comments/{id}")
-    public Comment findById(@PathVariable Long id) {
+    public Comment findById(@PathVariable String id) {
         Optional<Comment> comment = commentRepository.findById(id);
         if (comment.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Comment not found");
@@ -38,7 +38,7 @@ public class CommentController {
 
     // Comentarios de un video concreto
     @GetMapping("/videos/{videoId}/comments")
-    public List<Comment> findByVideo(@PathVariable Long videoId) {
+    public List<Comment> findByVideo(@PathVariable String videoId) {
         Optional<Video> video = videoRepository.findById(videoId);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
@@ -47,7 +47,7 @@ public class CommentController {
 
     @PostMapping("/videos/{videoId}/comments")
     @ResponseStatus(HttpStatus.CREATED)
-    public Comment create(@PathVariable Long videoId, @RequestBody @Valid Comment comment) {
+    public Comment create(@PathVariable String videoId, @RequestBody @Valid Comment comment) {
         Optional<Video> video = videoRepository.findById(videoId);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
@@ -58,7 +58,7 @@ public class CommentController {
 
     @DeleteMapping("/comments/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable String id) {
         if (!commentRepository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Comment not found");
         commentRepository.deleteById(id);

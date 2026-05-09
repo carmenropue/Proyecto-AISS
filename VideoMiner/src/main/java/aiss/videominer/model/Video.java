@@ -15,9 +15,8 @@ import java.util.List;
 public class Video {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private Long id;
+    private String id;
 
     @Column(name = "name")
     @NotEmpty(message = "Video name cannot be empty")
@@ -35,7 +34,7 @@ public class Video {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JsonProperty("user")
-    private User author;
+    private User user;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "videoId")
@@ -56,11 +55,11 @@ public class Video {
         this.releaseTime = releaseTime;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -88,12 +87,12 @@ public class Video {
         this.releaseTime = releaseTime;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setUser(User user) {
+        this.user = user;
     }
     
     public List<Comment> getComments() {
@@ -119,7 +118,7 @@ public class Video {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", releaseTime='" + releaseTime + '\'' +
-                ", author=" + author +
+                ", author=" + user +
                 ", comments=" + comments +
                 ", captions=" + captions +
                 '}';

@@ -17,10 +17,11 @@ import java.util.List;
         "name",
         "description",
         "publishedAt",
-        "channel",
-        "user",
         "comments",
-        "captions"
+        "captions",
+        "channel",
+        "account"
+
 })
 public class Video {
 

@@ -10,7 +10,7 @@ public class ChannelMapper {
 
         VMChannel vmChannel = new VMChannel();
 
-
+        vmChannel.setId(dmChannel.getId());
         vmChannel.setName(dmChannel.getScreenname());
         String desc = dmChannel.getDescription();
         vmChannel.setDescription(

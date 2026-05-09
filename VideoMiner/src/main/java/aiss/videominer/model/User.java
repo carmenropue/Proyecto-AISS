@@ -12,9 +12,8 @@ import jakarta.validation.constraints.NotEmpty;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private Long id;
+    private String id;
 
     @Column(name = "name")
     @NotEmpty(message = "User name cannot be empty")
@@ -38,11 +37,11 @@ public class User {
         this.picture_link = picture_link;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -44,6 +44,4 @@ public class CommentService {
         return comments;
     }
 
-    //119312
-
 }

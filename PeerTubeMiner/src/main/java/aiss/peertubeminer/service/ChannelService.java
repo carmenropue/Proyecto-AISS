@@ -31,7 +31,7 @@ public class ChannelService {
         return restTemplate.getForObject(uri, Channel.class);
     }
 
-    //GET https://peertube.tv/api/v1/video-channels/{channelHandle}  channelHandle: transport_evolved_main
+    //GET https://peertube.tv/api/v1/video-channels/{channelHandle}
     public VMChannel getChannelWithVideos(String channelHandle, Integer maxVideos, Integer maxComments) {
         String uri = baseURI + "/video-channels/" + channelHandle;
         try {

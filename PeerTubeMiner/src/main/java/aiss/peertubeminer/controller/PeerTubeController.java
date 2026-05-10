@@ -19,7 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Tag(name = "PeerTube", description = "PeerTube API operations")
 @RestController
-@RequestMapping("peertubeminer/api/v1")
+@RequestMapping("/peertubeminer/v1")
 public class PeerTubeController {
 
     @Autowired

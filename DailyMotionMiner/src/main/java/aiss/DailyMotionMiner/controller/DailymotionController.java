@@ -17,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Tag(name= "Dailymotion", description = "Dailymotion API operations")
 @RestController
-@RequestMapping("/dailymotion")
+@RequestMapping("/dailymotion/v1")
 public class DailymotionController {
 
     @Autowired

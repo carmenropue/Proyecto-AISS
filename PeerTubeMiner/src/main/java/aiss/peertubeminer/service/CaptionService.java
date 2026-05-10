@@ -20,7 +20,7 @@ public class CaptionService {
 
     String baseURI = "https://peertube.tv/api/v1";
 
-    //GET https://peertube.tv/api/v1/videos/{id}/captions   id= 119312 tiene
+    //GET https://peertube.tv/api/v1/videos/{id}/captions
     public List<Caption> getCaptionsFromVideo(Integer videoId) {
         List<Caption> captions = new ArrayList<>();
         String uri = baseURI + "/videos/" + videoId + "/captions";

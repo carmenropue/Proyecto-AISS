@@ -30,7 +30,7 @@ public class VideoService {
 
     String baseURI = "https://peertube.tv/api/v1";
 
-    //GET https://peertube.tv/api/v1/videos/{id}   id= 119312 tiene
+    //GET https://peertube.tv/api/v1/videos/{id}
     public Video getVideoFromId(Integer videoId) {
         String uri = baseURI + "/videos/" + videoId;
 

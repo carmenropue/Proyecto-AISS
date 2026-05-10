@@ -194,6 +194,14 @@ Actualiza el usuario de un vídeo.
 PUT:
 http://localhost:8080/videominer/v1/videos/{id}/user
 
+##Documentación
+
+DailyMotion Miner: localhost:8082/swagger-ui/index.html
+
+Peertube Miner: localhost:8081/swagger-ui/index.html
+
+VideoMiner: localhost:8080/swagger-ui/index.html
+
 ## Notas
 
 - Algunos vídeos de DailyMotion pueden no tener captions disponibles y devolver una lista vacía.

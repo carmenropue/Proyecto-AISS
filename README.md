@@ -27,6 +27,14 @@ https://github.com/carmenropue/Proyecto-AISS
 - Soporte para captions
 - Generación automática de IDs en VideoMiner para DailyMotionMiner
 
+## Documentación
+
+DailyMotion Miner: localhost:8082/swagger-ui/index.html
+
+Peertube Miner: localhost:8081/swagger-ui/index.html
+
+VideoMiner: localhost:8080/swagger-ui/index.html
+
 ## Tecnologías
 
 - Java
@@ -41,37 +49,45 @@ https://github.com/carmenropue/Proyecto-AISS
 
 Obtiene un canal de PeerTube.
 
-GET:
-http://localhost:8081/peertubeminer/api/v1/{channelHandle}?maxVideos=5&maxComments=2
+GET: http://localhost:8081/peertubeminer/v1/{channelHandle}?maxVideos=5&maxComments=2
 
-Ejemplo:
-http://localhost:8081/peertubeminer/api/v1/transport_evolved_main?maxVideos=5&maxComments=2
+Ejemplo: http://localhost:8081/peertubeminer/v1/transport_evolved_main?maxVideos=5&maxComments=2
+
+
+Obtiene un vídeo concreto de PeerTube.
+
+GET: http://localhost:8081/peertubeminer/v1/video/{id}?maxComments=2
+
+Ejemplo: http://localhost:8081/peertubeminer/v1/video/21856?maxComments=2
+
 
 Envía el canal de PeerTube a VideoMiner.
 
-POST:
-http://localhost:8081/peertubeminer/api/v1/{channelHandle}?maxVideos=5&maxComments=2
+POST: http://localhost:8081/peertubeminer/v1/{id}?maxVideos=5&maxComments=2
 
-Ejemplo:
-http://localhost:8081/peertubeminer/api/v1/transport_evolved_main?maxVideos=5&maxComments=2
+Ejemplo: http://localhost:8081/peertubeminer/v1/transport_evolved_main?maxVideos=5&maxComments=2
 
 ### DailyMotionMiner
 
 Obtiene un canal de DailyMotion.
 
-GET:
-http://localhost:8082/dailymotion/v1/{id}?maxVideos=10&maxPages=2
+GET: http://localhost:8082/dailymotion/v1/{id}?maxVideos=10&maxPages=2
 
-Ejemplo:
-http://localhost:8082/dailymotion/v1/x43py0?maxVideos=10&maxPages=2
+Ejemplo: http://localhost:8082/dailymotion/v1/x43py0?maxVideos=10&maxPages=2
+
 
 Envía el canal de DailyMotion a VideoMiner.
 
-POST:
-http://localhost:8082/dailymotion/v1/{id}?maxVideos=10&maxPages=2
+POST: http://localhost:8082/dailymotion/v1/{id}?maxVideos=10&maxPages=2
 
-Ejemplo:
-http://localhost:8082/dailymotion/v1/x43py0?maxVideos=10&maxPages=2
+Ejemplo: http://localhost:8082/dailymotion/v1/x43py0?maxVideos=10&maxPages=2
+
+
+Obtiene un vídeo concreto de DailyMotion.
+
+GET: http://localhost:8082/dailymotion/v1/video/{id}
+
+Ejemplo: http://localhost:8082/dailymotion/v1/video/x89abc
 
 ### VideoMiner
 
@@ -198,13 +214,6 @@ Actualiza el usuario de un vídeo.
 PUT:
 http://localhost:8080/videominer/v1/videos/{id}/user
 
-## Documentación
-
-DailyMotion Miner: localhost:8082/swagger-ui/index.html
-
-Peertube Miner: localhost:8081/swagger-ui/index.html
-
-VideoMiner: localhost:8080/swagger-ui/index.html
 
 ## Notas
 

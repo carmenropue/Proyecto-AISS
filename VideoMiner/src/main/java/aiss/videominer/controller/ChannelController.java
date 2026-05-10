@@ -34,7 +34,8 @@ public class ChannelController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Channel create(@RequestBody @Valid Channel channel) {
-        return channelRepository.save(channel);
+        channelRepository.save(channel);
+        return channel;
     }
 
     @PutMapping("/{id}")

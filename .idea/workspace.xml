@@ -4,46 +4,142 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a757ac4d-bce3-4f79-8be5-45715c335514" name="Changes" comment="" />
+    <list default="true" id="0cbeadbe-a1c2-477f-84e0-ba9dac742c8b" name="Changes" comment="a">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DailyMotionMiner/src/main/java/aiss/DailyMotionMiner/service/ChannelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DailyMotionMiner/src/main/java/aiss/DailyMotionMiner/service/ChannelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DailyMotionMiner/src/main/java/aiss/DailyMotionMiner/service/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DailyMotionMiner/src/main/java/aiss/DailyMotionMiner/service/VideoService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Luis/OneDrive/Escritorio/Proyecto-AISS" value="3D5LxN1VGCqkY6ktHpkA4Jz4Rfq" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Ask" />
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="agent-panel" value="Claude Haiku 4.5" />
+      <entry key="chat-panel" value="Claude Haiku 4.5" />
+    </selectedModels>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
-  <component name="ProjectId" id="3D1baoqcJ7rIKP1TTw7eARYU783" />
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lmarjim&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/carmenropue/Proyecto-AISS.git&quot;,
+    &quot;accountId&quot;: &quot;3cafd5b3-1d50-4854-a994-e14933133b8e&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3D5LxN1VGCqkY6ktHpkA4Jz4Rfq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DailyMotionApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Luis/OneDrive/Escritorio/Proyecto-AISS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Proyecto-AISS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Proyecto-AISS" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a757ac4d-bce3-4f79-8be5-45715c335514" name="Changes" comment="" />
-      <created>1777452589952</created>
+      <changelist id="0cbeadbe-a1c2-477f-84e0-ba9dac742c8b" name="Changes" comment="" />
+      <created>1777567230284</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1777452589952</updated>
+      <updated>1777567230284</updated>
     </task>
+    <task id="LOCAL-00001" summary="ChannelService y VideoService implementados en DailyMotionMiner. También cambios en los modelos.">
+      <option name="closed" value="true" />
+      <created>1777663946852</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1777663946852</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Cambios en la uri de VideoService y los test">
+      <option name="closed" value="true" />
+      <created>1777906868239</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1777906868239</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cambios en la uri de VideoService y los test">
+      <option name="closed" value="true" />
+      <created>1777906888800</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777906888800</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ChannelService y VideoService implementados en DailyMotionMiner. También cambios en los modelos." />
+    <MESSAGE value="Cambios en la uri de VideoService y los test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la uri de VideoService y los test" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

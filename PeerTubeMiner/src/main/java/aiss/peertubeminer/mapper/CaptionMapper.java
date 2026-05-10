@@ -8,9 +8,9 @@ public class CaptionMapper {
 
         VMCaption vm = new VMCaption();
 
-        vm.setId("1");
+        vm.setId("");
         vm.setLink(caption.getFileUrl());
-        vm.setLanguage(String.valueOf(caption.getLanguage()));
+        vm.setLanguage(caption.getLanguage() != null ? caption.getLanguage().getLabel() : null);
 
         return vm;
     }

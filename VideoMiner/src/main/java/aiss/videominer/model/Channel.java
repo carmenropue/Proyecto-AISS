@@ -1,6 +1,8 @@
 package aiss.videominer.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -13,6 +15,14 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Channel")
+@JsonPropertyOrder({
+        "id",
+        "name",
+        "description",
+        "createdTime",
+        "videos"
+})
+
 public class Channel {
 
     @Id
@@ -48,9 +58,7 @@ public class Channel {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setId(String id) {this.id = id;}
 
     public String getName() {
         return name;
@@ -87,7 +95,7 @@ public class Channel {
     @Override
     public String toString() {
         return "Channel{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", createdTime='" + createdTime + '\'' +

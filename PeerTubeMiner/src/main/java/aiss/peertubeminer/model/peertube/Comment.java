@@ -52,12 +52,6 @@ public class Comment {
         this.createdAt = createdAt;
     }
 
-    //@JsonProperty("video")
-    //public Video getVideo() {return video;}
-
-    //@JsonProperty("video")
-    //public void setVideo(Video video) {this.video = video;}
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -74,10 +68,6 @@ public class Comment {
         sb.append('=');
         sb.append(((this.createdAt == null)?"<null>":this.createdAt));
         sb.append(',');
-        //sb.append("video");
-        //sb.append('=');
-        //sb.append(((this.video == null)?"<null>":this.video));
-        //sb.append(',');
 
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

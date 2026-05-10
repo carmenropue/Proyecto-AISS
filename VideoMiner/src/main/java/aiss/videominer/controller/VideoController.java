@@ -83,7 +83,7 @@ public class VideoController {
         Optional<Video> video = videoRepository.findById(id);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
-        return video.get().getAuthor();
+        return video.get().getUser();
     }
 
     // Actualizar el usuario de un video
@@ -93,7 +93,7 @@ public class VideoController {
         Optional<Video> video = videoRepository.findById(id);
         if (video.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video not found");
-        video.get().setAuthor(updatedUser);
+        video.get().setUser(updatedUser);
         videoRepository.save(video.get());
     }
 }

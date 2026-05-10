@@ -6,7 +6,7 @@ import aiss.DailyMotionMiner.model.videominer.VMCaption;
 public class CaptionMapper {
     public static VMCaption toVMCaption(CaptionsItem dmCaption) {
         VMCaption vmCaption = new VMCaption();
-
+        vmCaption.setId(dmCaption.getId());
         vmCaption.setLanguage(dmCaption.getLanguage());
         vmCaption.setLink(dmCaption.getUrl());
 

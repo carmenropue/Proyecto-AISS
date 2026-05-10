@@ -1,9 +1,11 @@
 package aiss.peertubeminer.service;
 
+import aiss.peertubeminer.mapper.VideoMapper;
 import aiss.peertubeminer.model.peertube.Caption;
 import aiss.peertubeminer.model.peertube.Comment;
 import aiss.peertubeminer.model.peertube.Video;
 import aiss.peertubeminer.model.peertube.VideoSearch;
+import aiss.peertubeminer.model.videominer.VMVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,7 @@ public class VideoService {
 
     String baseURI = "https://peertube.tv/api/v1";
 
-    //GET https://peertube.tv/api/v1/videos/{id}   id= 119312 tiene
+    //GET https://peertube.tv/api/v1/videos/{id}
     public Video getVideoFromId(Integer videoId) {
         String uri = baseURI + "/videos/" + videoId;
 
@@ -43,6 +45,18 @@ public class VideoService {
             System.err.println("Unexpected error: " + e.getMessage());
         }
         return null;
+    }
+
+    public VMVideo getVMVideoFromId(Integer videoId, Integer maxComments) {
+        Video video = getVideoFromId(videoId);
+        if (video == null) {
+            return null;
+        }
+
+        video.setComments(commentService.getCommentsFromVideo(videoId, maxComments));
+        video.setCaptions(captionService.getCaptionsFromVideo(videoId));
+
+        return VideoMapper.toVMVideo(video);
     }
 
     //GET https://peertube.tv/api/v1/video-channels/{channelHandle}/videos

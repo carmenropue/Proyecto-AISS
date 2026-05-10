@@ -1,7 +1,4 @@
-
 package aiss.peertubeminer.model.peertube;
-
-import javax.annotation.processing.Generated;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,10 +14,11 @@ import java.util.List;
         "name",
         "description",
         "publishedAt",
-        "channel",
-        "user",
         "comments",
-        "captions"
+        "captions",
+        "channel",
+        "account"
+
 })
 public class Video {
 

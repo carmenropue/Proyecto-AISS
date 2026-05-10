@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="DailyMotionMiner" target="21" />
+      <module name="DailyMotionMiner (1)" target="1.5" />
+      <module name="integracion" target="21" />
+      <module name="integracion (1)" target="1.5" />
+      <module name="videominer" target="17" />
+      <module name="videominer (1)" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

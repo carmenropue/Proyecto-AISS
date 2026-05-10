@@ -1,5 +1,6 @@
 package aiss.videominer.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Video")
+
 public class Video {
 
     @Id
@@ -34,7 +36,7 @@ public class Video {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JsonProperty("user")
-    private User author;
+    private User user;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "videoId")
@@ -87,12 +89,12 @@ public class Video {
         this.releaseTime = releaseTime;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setUser(User user) {
+        this.user = user;
     }
     
     public List<Comment> getComments() {
@@ -114,11 +116,11 @@ public class Video {
     @Override
     public String toString() {
         return "Video{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", releaseTime='" + releaseTime + '\'' +
-                ", author=" + author +
+                ", author=" + user +
                 ", comments=" + comments +
                 ", captions=" + captions +
                 '}';

@@ -9,7 +9,7 @@ public class UserMapper {
 
         VMUser vm = new VMUser();
 
-        vm.setId(String.valueOf(user.getId()));
+        vm.setId(null);
         vm.setName(user.getName());
         vm.setUser_link(user.getUrl());
 

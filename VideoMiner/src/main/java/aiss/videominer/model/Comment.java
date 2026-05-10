@@ -1,5 +1,6 @@
 package aiss.videominer.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,6 +10,7 @@ import jakarta.validation.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "Comment")
+
 public class Comment {
 
     @Id
@@ -61,7 +63,7 @@ public class Comment {
     @Override
     public String toString() {
         return "Comment{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", text='" + text + '\'' +
                 ", createdOn='" + createdOn + '\'' +
                 '}';

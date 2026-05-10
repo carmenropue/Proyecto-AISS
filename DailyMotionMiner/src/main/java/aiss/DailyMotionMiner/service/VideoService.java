@@ -1,12 +1,14 @@
 package aiss.DailyMotionMiner.service;
 
 import aiss.DailyMotionMiner.mapper.CaptionMapper;
+import aiss.DailyMotionMiner.mapper.ChannelMapper;
 import aiss.DailyMotionMiner.mapper.VideoMapper;
 import aiss.DailyMotionMiner.model.dailymotion.Captions;
 import aiss.DailyMotionMiner.model.dailymotion.CaptionsItem;
 import aiss.DailyMotionMiner.model.dailymotion.Video;
 import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import aiss.DailyMotionMiner.model.videominer.VMCaption;
+import aiss.DailyMotionMiner.model.videominer.VMChannel;
 import aiss.DailyMotionMiner.model.videominer.VMVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -24,23 +26,49 @@ import java.util.Map;
 public class VideoService {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    UserService userService;
     String baseUri = "https://api.dailymotion.com";
     String clientId = "f5595653d07994a56fbe";
     String clientSecret = "7ba945a34824a1348661113da7770678df8d473d";
 
     //GET https://api.dailymotion.com/video/{videoId}
     public Video getVideoFromId(String id){
-        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time";
+        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time,tags,owner";
         try{
-            return restTemplate.getForObject(uri, Video.class);
+            restTemplate.getForObject(uri, Video.class);
+
         } catch ( HttpClientErrorException e){
-            System.err.println("Client error: " +e.getStatusCode() +" - "+e.getResponseBodyAsString());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.NOT_FOUND,
+                    "Video not found: " + e.getMessage()
+            );
         } catch ( HttpServerErrorException e){
-            System.err.println("Server error: " +e.getStatusCode() +" - "+e.getResponseBodyAsString());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.BAD_GATEWAY,
+                    "Dailymotion server error: " + e.getMessage()
+            );
+        } catch (org.springframework.web.server.ResponseStatusException e) {
+            throw e;
         } catch ( Exception e){
-            System.err.println("Unexpected error: " + e.getMessage());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Unexpected error: " + e.getMessage()
+            );
         }
         return null;
+    }
+
+    public VMVideo getVMVideoFromId(String id) {
+        Video dmVideo = getVideoFromId(id);
+        if (dmVideo == null) {
+            return null;
+        }
+
+        VMVideo vmVideo = VideoMapper.toVMVideo(dmVideo);
+        vmVideo.setUser(userService.getUserFromVideo(dmVideo.getUser()));
+        vmVideo.setCaptions(getCaptionsFromVideo(id));
+        return vmVideo;
     }
     //GET  https://api.dailymotion.com/user/{userId}/videos
 
@@ -57,7 +85,7 @@ public class VideoService {
                 if(dmVideos != null && dmVideos.getList() != null) {
                     for (Video dmVideo : dmVideos.getList()) {
                         VMVideo vmVideo = VideoMapper.toVMVideo(dmVideo);
-
+                        vmVideo.setUser(userService.getUserFromVideo(userId));
                         vmVideo.setCaptions(getCaptionsFromVideo(dmVideo.getId()));
 
                         vmVideos.add(vmVideo);
@@ -65,11 +93,22 @@ public class VideoService {
                 }
             }
         } catch (HttpClientErrorException e){
-            System.err.println("Client error: " + e.getStatusCode() +" - "+e.getResponseBodyAsString());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.NOT_FOUND,
+                    "Videos not found: " + e.getMessage()
+            );
         } catch (HttpServerErrorException e){
-            System.err.println("Server error: " + e.getStatusCode() +" - "+e.getResponseBodyAsString());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.BAD_GATEWAY,
+                    "Dailymotion server error: " + e.getMessage()
+            );
+        } catch (org.springframework.web.server.ResponseStatusException e) {
+            throw e;
         } catch (Exception e){
-            System.err.println("Unexpected error: " + e.getMessage());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Unexpected error: " + e.getMessage()
+            );
         }
         return vmVideos;
     }
@@ -96,9 +135,10 @@ public class VideoService {
         return response.getBody().get("access_token").toString();
     }
 
-    private List<VMCaption> getCaptionsFromVideo(String videoId) {
+    public List<VMCaption> getCaptionsFromVideo(String videoId) {
         List<VMCaption> vmCaptions = new ArrayList<>();
-        String uri = baseUri + "/video/" + videoId + "/subtitles";
+        String uri = baseUri + "/video/" + videoId + "/subtitles"
+                +"?fields=id,url,language";
 
         try{
             String token = getAccessToken();

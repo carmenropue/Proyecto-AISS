@@ -29,6 +29,9 @@ public class Video {
     //Propiedad añadida
     @JsonProperty("tags")
     private List<String> tags;
+    //Otra propiedad añadida
+    @JsonProperty("user")
+    private String user;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -80,6 +83,14 @@ public class Video {
     @JsonProperty("tags")
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+    @JsonProperty("user")
+    public String getUser() {
+        return user;
+    }
+    @JsonProperty("user")
+    public void setUser(String user) {
+        this.user = user;
     }
 
     @JsonAnyGetter

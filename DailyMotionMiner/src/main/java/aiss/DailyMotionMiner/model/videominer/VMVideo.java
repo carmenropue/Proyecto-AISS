@@ -8,20 +8,30 @@ public class VMVideo {
     private String name;
     private String description;
     private String releaseTime;
+    private VMUser user;
     private List<VMComment> comments;
     private List<VMCaption> captions;
 
-    public VMVideo(String id, String name, String description, String releaseTime, List<VMComment> comments, List<VMCaption> captions) {
+    public VMVideo(String id, String name, String description, String releaseTime,VMUser user, List<VMComment> comments, List<VMCaption> captions) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.releaseTime = releaseTime;
+        this.user = user;
         this.comments = comments;
         this.captions = captions;
     }
 
     public VMVideo() {
 
+    }
+
+    public VMUser getUser() {
+        return user;
+    }
+
+    public void setUser(VMUser user) {
+        this.user = user;
     }
 
     public String getId() { return id; }
@@ -54,5 +64,17 @@ public class VMVideo {
 
     public void setComments(List<VMComment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "VMVideo{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", releaseTime='" + releaseTime + '\'' +
+                ", comments=" + comments +
+                ", captions=" + captions +
+                '}';
     }
 }

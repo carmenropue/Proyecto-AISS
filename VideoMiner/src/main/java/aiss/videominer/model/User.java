@@ -1,5 +1,6 @@
 package aiss.videominer.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,11 +10,13 @@ import jakarta.validation.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "VMUser")
+@JsonIgnoreProperties(value = {"id"})
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private String id;
+    private Long id;
 
     @Column(name = "name")
     @NotEmpty(message = "User name cannot be empty")
@@ -37,11 +40,11 @@ public class User {
         this.picture_link = picture_link;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,7 +75,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", user_link='" + user_link + '\'' +
                 ", picture_link='" + picture_link + '\'' +

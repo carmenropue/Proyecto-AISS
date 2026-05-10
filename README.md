@@ -2,6 +2,10 @@
 
 Proyecto de integración desarrollado con Spring Boot para obtener información desde PeerTubeMiner y DailyMotionMiner y almacenarla en VideoMiner.
 
+## Repositorio GitHub
+
+https://github.com/carmenropue/Proyecto-AISS
+
 ## Servicios y Puertos
 
 | Servicio | Puerto |
@@ -56,18 +60,18 @@ http://localhost:8081/peertubeminer/api/v1/transport_evolved_main?maxVideos=5&ma
 Obtiene un canal de DailyMotion.
 
 GET:
-http://localhost:8082/dailymotion/{id}?maxVideos=10&maxPages=2
+http://localhost:8082/dailymotion/v1/{id}?maxVideos=10&maxPages=2
 
 Ejemplo:
-http://localhost:8082/dailymotion/x43py0?maxVideos=10&maxPages=2
+http://localhost:8082/dailymotion/v1/x43py0?maxVideos=10&maxPages=2
 
 Envía el canal de DailyMotion a VideoMiner.
 
 POST:
-http://localhost:8082/dailymotion/{id}?maxVideos=10&maxPages=2
+http://localhost:8082/dailymotion/v1/{id}?maxVideos=10&maxPages=2
 
 Ejemplo:
-http://localhost:8082/dailymotion/x43py0?maxVideos=10&maxPages=2
+http://localhost:8082/dailymotion/v1/x43py0?maxVideos=10&maxPages=2
 
 ### VideoMiner
 

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="81bf642d-cadb-4f70-a925-e37cc73ee0a2" name="Changes" comment="Small changes&#10;&#10;Quitar imports no usados en PT y limpiado comentarios&#10;Eliminado PeertubePublicController&#10;Añadido los Test de los Services de PT&#10;Unificado todos los formatos de ruta" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="a480f852-51dd-4331-a563-55dc45448a6a" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3CZw1mFYFuLiEo4xPcYOhPNV7jg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ChannelServiceTest.getChannel.executor": "Run",
+    "JUnit.ChannelServiceTest.getChannelWithVideos.executor": "Run",
+    "JUnit.VideoServiceTest.findVideosWithCC.executor": "Run",
+    "JUnit.captionServiceTest.executor": "Run",
+    "JUnit.captionServiceTest.findCaption (1).executor": "Run",
+    "JUnit.captionServiceTest.findCaption.executor": "Run",
+    "JUnit.channelServiceTest.getChannel.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DailyMotionApplication.executor": "Run",
+    "Spring Boot.PeerTubeMinerApplication.executor": "Run",
+    "Spring Boot.VideominerApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Carmen/Desktop/universidad/2/C2/AISS/Integracion/Proyecto-AISS/PeerTubeMiner/src/main/java/aiss/PeerTubeMiner/service",
+    "last_opened_file_path": "C:/Users/Carmen/Desktop/universidad/2/C2/AISS/Integracion/Proyecto-AISS/DailyMotionMiner/src/main/java/aiss/DailyMotionMiner/model/videominer",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Carmen\Desktop\universidad\2\C2\AISS\Integracion\Proyecto-AISS\DailyMotionMiner\src\main\java\aiss\DailyMotionMiner\model\videominer" />
+      <recent name="C:\Users\Carmen\Desktop\universidad\2\C2\AISS\Integracion\Proyecto-AISS" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Carmen\Desktop\universidad\2\C2\AISS\Integracion\Proyecto-AISS\PeerTubeMiner\src\main\java\aiss\PeerTubeMiner\model\peerTube" />
+      <recent name="C:\Users\Carmen\Desktop\universidad\2\C2\AISS\Integracion\Proyecto-AISS\PeerTubeMiner\src\main\java\aiss\PeerTubeMiner\model" />
+      <recent name="C:\Users\Carmen\Desktop\universidad\2\C2\AISS\Integracion\Proyecto-AISS\PeerTubeMiner\src\main\java\aiss\PeerTubeMiner" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="aiss.PeerTubeMiner.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.VideoServiceTest.findVideosWithCC">
+    <configuration name="CaptionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PeerTubeMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aiss.PeerTubeMiner.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aiss.PeerTubeMiner.service" />
+      <option name="MAIN_CLASS_NAME" value="aiss.PeerTubeMiner.service.CaptionServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CaptionServiceTest.findCaption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PeerTubeMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aiss.PeerTubeMiner.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aiss.PeerTubeMiner.service" />
+      <option name="MAIN_CLASS_NAME" value="aiss.PeerTubeMiner.service.CaptionServiceTest" />
+      <option name="METHOD_NAME" value="findCaption" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChannelServiceTest.getChannel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PeerTubeMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aiss.PeerTubeMiner.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aiss.PeerTubeMiner.service" />
+      <option name="MAIN_CLASS_NAME" value="aiss.PeerTubeMiner.service.ChannelServiceTest" />
+      <option name="METHOD_NAME" value="getChannel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChannelServiceTest.getChannelWithVideos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PeerTubeMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aiss.peertubeminer.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aiss.peertubeminer.service" />
+      <option name="MAIN_CLASS_NAME" value="aiss.peertubeminer.service.ChannelServiceTest" />
+      <option name="METHOD_NAME" value="getChannelWithVideos" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoServiceTest.findVideosWithCC" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PeerTubeMiner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aiss.peertubeminer.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="aiss.peertubeminer.service" />
+      <option name="MAIN_CLASS_NAME" value="aiss.peertubeminer.service.VideoServiceTest" />
+      <option name="METHOD_NAME" value="findVideosWithCC" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.VideoServiceTest.findVideosWithCC" />
+        <item itemvalue="JUnit.ChannelServiceTest.getChannelWithVideos" />
+        <item itemvalue="JUnit.ChannelServiceTest.getChannel" />
+        <item itemvalue="JUnit.CaptionServiceTest" />
+        <item itemvalue="JUnit.CaptionServiceTest.findCaption" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="81bf642d-cadb-4f70-a925-e37cc73ee0a2" name="Changes" comment="" />
+      <created>1776606188017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776606188017</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Proyectos base de cada aplicación">
+      <option name="closed" value="true" />
+      <created>1776606729730</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776606729732</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Clases POJO de PeerTube">
+      <option name="closed" value="true" />
+      <created>1776771748673</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776771748673</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Carpetas y clases añadidas">
+      <option name="closed" value="true" />
+      <created>1777219157612</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777219157613</updated>
+    </task>
+    <task id="LOCAL-00004" summary="CaptionService probado">
+      <option name="closed" value="true" />
+      <created>1777459307897</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777459307897</updated>
+    </task>
+    <task id="LOCAL-00005" summary="corregido typos">
+      <option name="closed" value="true" />
+      <created>1777459402124</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777459402124</updated>
+    </task>
+    <task id="LOCAL-00006" summary="services hechos y probados">
+      <option name="closed" value="true" />
+      <created>1777465062959</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777465062959</updated>
+    </task>
+    <task id="LOCAL-00007" summary="services hechos y probados">
+      <option name="closed" value="true" />
+      <created>1777465308165</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777465308165</updated>
+    </task>
+    <task id="LOCAL-00008" summary="creados model VM">
+      <option name="closed" value="true" />
+      <created>1777478442348</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777478442348</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Minor changes">
+      <option name="closed" value="true" />
+      <created>1777579706782</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777579706782</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implementar get PeerTubeController">
+      <option name="closed" value="true" />
+      <created>1777579833147</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1777579833147</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Minor changes">
+      <option name="closed" value="true" />
+      <created>1777579932924</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1777579932924</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Minor changes">
+      <option name="closed" value="true" />
+      <created>1777579951422</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1777579951422</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test service eliminados, terminado controller PeerTube">
+      <option name="closed" value="true" />
+      <created>1777636448999</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777636448999</updated>
+    </task>
+    <task id="LOCAL-00014" summary="delete">
+      <option name="closed" value="true" />
+      <created>1777997352873</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1777997352873</updated>
+    </task>
+    <task id="LOCAL-00015" summary="maxComments">
+      <option name="closed" value="true" />
+      <created>1777998054279</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1777998054279</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Muchos cambios&#10;&#10;He cambiado de Long a String los ids y ahora se muestran en el Postman.&#10;language de PT devuelve la etiqueta&#10;GET PTController ya no envía a videominer.">
+      <option name="closed" value="true" />
+      <created>1778355155627</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1778355155627</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Small changes&#10;&#10;Quitar imports no usados en PT y limpiado comentarios&#10;Eliminado PeertubePublicController&#10;Añadido los Test de los Services de PT&#10;Unificado todos los formatos de ruta">
+      <option name="closed" value="true" />
+      <created>1778427090932</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778427090932</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Proyectos base de cada aplicación" />
+    <MESSAGE value="Clases POJO de PeerTube" />
+    <MESSAGE value="Carpetas y clases añadidas" />
+    <MESSAGE value="CaptionService probado" />
+    <MESSAGE value="corregido typos" />
+    <MESSAGE value="services hechos y probados" />
+    <MESSAGE value="creados model VM" />
+    <MESSAGE value="Implementar get PeerTubeController" />
+    <MESSAGE value="Minor changes" />
+    <MESSAGE value="Test service eliminados, terminado controller PeerTube" />
+    <MESSAGE value="delete" />
+    <MESSAGE value="maxComments" />
+    <MESSAGE value="Muchos cambios&#10;&#10;He cambiado de Long a String los ids y ahora se muestran en el Postman.&#10;language de PT devuelve la etiqueta&#10;GET PTController ya no envía a videominer." />
+    <MESSAGE value="Small changes&#10;&#10;Quitar imports no usados en PT y limpiado comentarios&#10;Eliminado PeertubePublicController&#10;Añadido los Test de los Services de PT&#10;Unificado todos los formatos de ruta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes&#10;&#10;Quitar imports no usados en PT y limpiado comentarios&#10;Eliminado PeertubePublicController&#10;Añadido los Test de los Services de PT&#10;Unificado todos los formatos de ruta" />
+  </component>
+</project>

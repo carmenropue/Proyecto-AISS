@@ -12,9 +12,8 @@ import jakarta.validation.constraints.NotEmpty;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private Long id;
+    private String id;
 
     @Column(name = "text", columnDefinition = "TEXT")
     @NotEmpty(message = "Comment text cannot be empty")
@@ -34,11 +33,11 @@ public class Comment {
         this.createdOn = createdOn;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

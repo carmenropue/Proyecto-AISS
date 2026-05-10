@@ -9,9 +9,9 @@ public class VMVideo {
     private String name;
     private String description;
     private String releaseTime;
-    private VMUser author;
     private List<VMComment> comments = new ArrayList<>();
     private List<VMCaption> captions = new ArrayList<>();
+    private VMUser user;
 
     public VMVideo(String id, String name, String description, String realeaseTime) {
         this.id = id;
@@ -41,8 +41,8 @@ public class VMVideo {
 
     public void setReleaseTime(String releaseTime) { this.releaseTime = releaseTime; }
 
-    public VMUser getAuthor() { return author; }
-    public void setAuthor(VMUser author) { this.author = author; }
+    public VMUser getUser() { return user; }
+    public void setAuthor(VMUser user) { this.user = user; }
 
     public List<VMComment> getComments() { return comments; }
     public void setComments(List<VMComment> comments) { this.comments = comments; }

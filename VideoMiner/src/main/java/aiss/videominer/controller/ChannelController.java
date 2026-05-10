@@ -24,7 +24,7 @@ public class ChannelController {
     }
 
     @GetMapping("/{id}")
-    public Channel findById(@PathVariable Long id) {
+    public Channel findById(@PathVariable String id) {
         Optional<Channel> channel = channelRepository.findById(id);
         if (channel.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Channel not found");
@@ -34,12 +34,13 @@ public class ChannelController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Channel create(@RequestBody @Valid Channel channel) {
-        return channelRepository.save(channel);
+        channelRepository.save(channel);
+        return channel;
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @RequestBody @Valid Channel updatedChannel) {
+    public void update(@PathVariable String id, @RequestBody @Valid Channel updatedChannel) {
         Optional<Channel> channel = channelRepository.findById(id);
         if (channel.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Channel not found");
@@ -52,7 +53,7 @@ public class ChannelController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable String id) {
         if (!channelRepository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Channel not found");
         channelRepository.deleteById(id);

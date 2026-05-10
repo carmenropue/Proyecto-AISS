@@ -39,7 +39,7 @@ public class PeerTubeController {
     public VMChannel getChannel(@PathVariable String channelHandle,
                                 @RequestParam(name = "maxVideos", defaultValue = "10") @Min(1) @Max(100) Integer maxVideos,
                                 @RequestParam(name = "maxComments", defaultValue = "2") @Min(1) @Max(100) Integer maxComments) {
-        return channelService.getChannelAndSendToMiner(channelHandle, maxVideos, maxComments); //Se diferencian en los servicios, cada uno consume su API (PeerTube o DailyMotion) pero ambos devuelven el mismo modelo para VideoMiner.
+        return channelService.getChannelWithVideos(channelHandle, maxVideos, maxComments); //Se diferencian en los servicios, cada uno consume su API (PeerTube o DailyMotion) pero ambos devuelven el mismo modelo para VideoMiner.
     }
 
     @Operation(summary = "Get video information",
@@ -59,8 +59,8 @@ public class PeerTubeController {
         return video;
     }
 
-    // Alias informativo dentro del mismo controlador: /peertubeminer/api/v1/tv
-    @GetMapping(value = "/tv", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+    // Alias informativo dentro del mismo controlador: /peertubeminer/api/v1
+    @GetMapping(produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
     public java.util.Map<String, Object> infoAlias() {
         java.util.Map<String, Object> m = new java.util.LinkedHashMap<>();
         m.put("message", "PeerTubeMiner - rutas disponibles (desde PeerTubeController)");
@@ -72,14 +72,14 @@ public class PeerTubeController {
     }
 
     //Operacion POST
-    //TODO Añadir maxPages a la uri de peertube
     @Operation(summary = "Send channel information to miner",
             description = "Retrieve channel information and videos from PeerTube and send it to the miner",
             tags = {"PeerTube", "postChannel"})
     @ApiResponses({
-            @ApiResponse(responseCode = "202", content = {@Content(schema = @Schema(implementation = VMChannel.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "201", content = {@Content(schema = @Schema(implementation = VMChannel.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())})
     })
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{id}")
     public VMChannel SendChannel(
             @PathVariable String id,

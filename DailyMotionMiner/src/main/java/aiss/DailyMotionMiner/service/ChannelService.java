@@ -47,6 +47,7 @@ public class ChannelService {
                     "Unexpected error: " + e.getMessage()
             );
         }
+        return new VMChannel();
     }
 
     public VMChannel getChannelAndSendToMiner(String userId, int maxVideos, int maxPages){

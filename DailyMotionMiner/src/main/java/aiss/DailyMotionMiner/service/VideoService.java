@@ -1,12 +1,14 @@
 package aiss.DailyMotionMiner.service;
 
 import aiss.DailyMotionMiner.mapper.CaptionMapper;
+import aiss.DailyMotionMiner.mapper.ChannelMapper;
 import aiss.DailyMotionMiner.mapper.VideoMapper;
 import aiss.DailyMotionMiner.model.dailymotion.Captions;
 import aiss.DailyMotionMiner.model.dailymotion.CaptionsItem;
 import aiss.DailyMotionMiner.model.dailymotion.Video;
 import aiss.DailyMotionMiner.model.dailymotion.VideoList;
 import aiss.DailyMotionMiner.model.videominer.VMCaption;
+import aiss.DailyMotionMiner.model.videominer.VMChannel;
 import aiss.DailyMotionMiner.model.videominer.VMVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -24,15 +26,18 @@ import java.util.Map;
 public class VideoService {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    UserService userService;
     String baseUri = "https://api.dailymotion.com";
     String clientId = "f5595653d07994a56fbe";
     String clientSecret = "7ba945a34824a1348661113da7770678df8d473d";
 
     //GET https://api.dailymotion.com/video/{videoId}
     public Video getVideoFromId(String id){
-        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time,tags";
+        String uri = baseUri+"/video"+"/"+id+"?fields=id,title,description,created_time,tags,owner";
         try{
-            return restTemplate.getForObject(uri, Video.class);
+            restTemplate.getForObject(uri, Video.class);
+
         } catch ( HttpClientErrorException e){
             System.err.println("Client error: " +e.getStatusCode() +" - "+e.getResponseBodyAsString());
         } catch ( HttpServerErrorException e){
@@ -50,6 +55,7 @@ public class VideoService {
         }
 
         VMVideo vmVideo = VideoMapper.toVMVideo(dmVideo);
+        vmVideo.setUser(userService.getUserFromVideo(dmVideo.getUser()));
         vmVideo.setCaptions(getCaptionsFromVideo(id));
         return vmVideo;
     }
@@ -68,7 +74,7 @@ public class VideoService {
                 if(dmVideos != null && dmVideos.getList() != null) {
                     for (Video dmVideo : dmVideos.getList()) {
                         VMVideo vmVideo = VideoMapper.toVMVideo(dmVideo);
-
+                        vmVideo.setUser(userService.getUserFromVideo(userId));
                         vmVideo.setCaptions(getCaptionsFromVideo(dmVideo.getId()));
 
                         vmVideos.add(vmVideo);

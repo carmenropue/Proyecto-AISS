@@ -15,7 +15,6 @@ public class ChannelService {
     RestTemplate restTemplate;
     @Autowired
     VideoService videoService;
-
     String baseUri = "https://api.dailymotion.com";
     String videoMinerUri = "http://localhost:8080/videominer/v1/channels";
 

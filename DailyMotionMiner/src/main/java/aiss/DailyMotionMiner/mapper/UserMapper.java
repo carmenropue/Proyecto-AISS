@@ -8,7 +8,6 @@ public class UserMapper {
         if (user == null) {
             return null;
         }
-
         return new VMUser(
                 user.getId(),
                 user.getUsername(),

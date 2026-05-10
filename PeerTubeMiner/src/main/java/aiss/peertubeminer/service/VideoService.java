@@ -7,6 +7,7 @@ import aiss.peertubeminer.model.peertube.Video;
 import aiss.peertubeminer.model.peertube.VideoSearch;
 import aiss.peertubeminer.model.videominer.VMVideo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -35,14 +36,22 @@ public class VideoService {
         String uri = baseURI + "/videos/" + videoId;
 
         try{
-            return restTemplate.getForObject(uri, Video.class);
-        } catch (HttpClientErrorException e){
-            System.err.println("Client error: " + e.getStatusCode() + "-" + e.getResponseBodyAsString());
-        } catch (HttpServerErrorException e) {
-            System.err.println("Server error: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
+            restTemplate.getForObject(uri, Video.class);
 
+        } catch (HttpClientErrorException e){
+            throw new org.springframework.web.server.ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Video not found" + e.getMessage()
+            );
+        } catch (HttpServerErrorException e) {
+            throw new org.springframework.web.server.ResponseStatusException(
+                    HttpStatus.BAD_GATEWAY, "PeerTube server error" + e.getMessage()
+            );
+        } catch (org.springframework.web.server.ResponseStatusException e) {
+            throw e;
         } catch (Exception e) {
-            System.err.println("Unexpected error: " + e.getMessage());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error" + e.getMessage()
+            );
         }
         return null;
     }

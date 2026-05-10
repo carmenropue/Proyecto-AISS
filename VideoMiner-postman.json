@@ -235,7 +235,7 @@
               "pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
               "\r",
               "var jsonData = pm.response.json();\r",
-              "pm.test(\"Returned response has 8 elements\", () => { pm.expect(jsonData.length).to.equal(8); })"
+              "pm.test(\"Returned response has 7 elements\", () => { pm.expect(jsonData.length).to.equal(7); })"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -395,7 +395,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8081/peertubeminer/v1/:channelHandler?maxVideos=24&maxComments=1",
+          "raw": "http://localhost:8081/peertubeminer/v1/:channelHandle?maxVideos=24&maxComments=1",
           "protocol": "http",
           "host": [
             "localhost"
@@ -404,7 +404,7 @@
           "path": [
             "peertubeminer",
             "v1",
-            ":channelHandler"
+            ":channelHandle"
           ],
           "query": [
             {
@@ -418,8 +418,8 @@
           ],
           "variable": [
             {
-              "key": "channelHandler",
-              "value": "t"
+              "key": "channelHandle",
+              "value": "tv"
             }
           ]
         }
@@ -441,7 +441,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8081/peertubeminer/v1/:channelHandler",
+          "raw": "http://localhost:8081/peertubeminer/v1/:channelHandle",
           "protocol": "http",
           "host": [
             "localhost"
@@ -450,11 +450,11 @@
           "path": [
             "peertubeminer",
             "v1",
-            ":channelHandler"
+            ":channelHandle"
           ],
           "variable": [
             {
-              "key": "channelHandler",
+              "key": "channelHandle",
               "value": "tv"
             }
           ]
@@ -468,7 +468,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8082/dailymotion/:channelHandler?maxVideos=24&maxPages=1",
+          "raw": "http://localhost:8082/dailymotion/v1/:channelHandle?maxVideos=24&maxPages=1",
           "protocol": "http",
           "host": [
             "localhost"
@@ -476,7 +476,8 @@
           "port": "8082",
           "path": [
             "dailymotion",
-            ":channelHandler"
+            "v1",
+            ":channelHandle"
           ],
           "query": [
             {
@@ -490,7 +491,7 @@
           ],
           "variable": [
             {
-              "key": "channelHandler",
+              "key": "channelHandle",
               "value": "europarltv"
             }
           ]
@@ -504,7 +505,7 @@
         "method": "POST",
         "header": [],
         "url": {
-          "raw": "http://localhost:8082/dailymotion/:channelHandler?maxVideos=24&maxPages=1",
+          "raw": "http://localhost:8082/dailymotion/v1/:channelHandle?maxVideos=24&maxPages=1",
           "protocol": "http",
           "host": [
             "localhost"
@@ -512,7 +513,8 @@
           "port": "8082",
           "path": [
             "dailymotion",
-            ":channelHandler"
+            "v1",
+            ":channelHandle"
           ],
           "query": [
             {
@@ -526,7 +528,7 @@
           ],
           "variable": [
             {
-              "key": "channelHandler",
+              "key": "channelHandle",
               "value": "europarltv"
             }
           ]

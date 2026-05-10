@@ -194,7 +194,7 @@ Actualiza el usuario de un vídeo.
 PUT:
 http://localhost:8080/videominer/v1/videos/{id}/user
 
-##Documentación
+## Documentación
 
 DailyMotion Miner: localhost:8082/swagger-ui/index.html
 

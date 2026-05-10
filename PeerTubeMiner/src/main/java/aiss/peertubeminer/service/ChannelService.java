@@ -49,11 +49,22 @@ public class ChannelService {
                 return vmChannel;
             }
         } catch (HttpClientErrorException e) {
-            System.err.println("Client error: " + e.getStatusCode() + "-" + e.getResponseBodyAsString());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.NOT_FOUND,
+                    "Videos not found: " + e.getMessage()
+            );
         } catch (HttpServerErrorException e) {
-            System.err.println("Server error: " + e.getStatusCode() + "-" + e.getResponseBodyAsString());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.BAD_GATEWAY,
+                    "Dailymotion server error: " + e.getMessage()
+            );
+        } catch (org.springframework.web.server.ResponseStatusException e) {
+            throw e;
         } catch (Exception e) {
-            System.err.println("Unexpected error: " + e.getMessage());
+            throw new org.springframework.web.server.ResponseStatusException(
+                    org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Unexpected error: " + e.getMessage()
+            );
         }
         return null;
     }

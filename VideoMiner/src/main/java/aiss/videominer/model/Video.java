@@ -105,13 +105,9 @@ public class Video {
         this.comments = comments;
     }
 
-    public List<Caption> getCaptions() {
-        return captions;
-    }
+    public List<Caption> getCaptions() {return captions;}
 
-    public void setCaptions(List<Caption> captions) {
-        this.captions = captions;
-    }
+    public void setCaptions(List<Caption> captions) {this.captions = captions;}
 
     @Override
     public String toString() {
